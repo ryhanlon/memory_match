@@ -2,12 +2,12 @@
 
 @media screen and (min-width: 767px) {
     .main-container {
-    display: grid;
-    position: relative;
-    grid-template: 10% 80% 10% / 30% 70%;
-    grid-template-areas: "game-nav game-nav"
-                         "game-nav game-board"
-                         "footer footer";
+        display: grid;
+        justify-items: center;
+        grid-template: 15% 70% 15% / 20% 80%;
+        grid-template-areas: "game-nav game-nav"
+                             "game-nav game-board"
+                             "footer footer";
     }
 }
 

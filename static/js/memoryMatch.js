@@ -10,7 +10,7 @@ const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "m
   for (let animal of animals) {
    // console.log(animal);
     let buildBoxes = `<div class="box ${animal[1]}">${animal[0]}<div>`;
-    $(".main-container").append(buildBoxes);
+    $(".game-board").append(buildBoxes);
     // let mainContainer = document.querySelector('.main-container');
     // mainContainer.innerHTML = buildBoxes;
   }

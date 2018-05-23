@@ -105,6 +105,13 @@ video {
            Game-board
 ---------------------------------*/
 
+.game-board {
+    grid-area: game-board;
+    justify-self: center;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
 .box {
     background-color: red;
     border: 2px solid green;
