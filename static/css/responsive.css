@@ -1,0 +1,20 @@
+/*----- iPad (768 x 1024) -----*/
+
+@media screen and (min-width: 767px) {
+    .main-container {
+    display: grid;
+    position: relative;
+    grid-template: 10% 80% 10% / 30% 70%;
+    grid-template-areas: "game-nav game-nav"
+                         "game-nav game-board"
+                         "footer footer";
+    }
+}
+
+
+/*----- media-query for iPad Pro (1024 x 1366) -----*/
+
+@media screen and (min-width: 1023px) {
+
+}
+

@@ -19,6 +19,10 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
+ul {
+    list-style: none;
+}
+
 img,
 embed,
 object,
@@ -26,25 +30,96 @@ video {
     max-width: 100%;
 }
 
-a {
-    grid-area: button;
-    text-decoration: none;
-    justify-self: center;
-    cursor: pointer;
+/*a {*/
+    /*grid-area: button;*/
+    /*text-decoration: none;*/
+    /*justify-self: center;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*form {*/
+    /*grid-area: button;*/
+    /*text-decoration: none;*/
+    /*justify-self: center;*/
+    /*cursor: pointer;*/
+/*}*/
+
+.main-container {
+    display: grid;
+    position: relative;
+    grid-template: 10% 10% repeat(4, 17.5%) 10% / repeat(4,1fr);
+    grid-template-areas: "game-nav game-nav game-nav game-nav"
+                         "game-board game-board game-board game-board"
+                         "footer footer footer footer";
 }
 
-form {
-    grid-area: button;
-    text-decoration: none;
-    justify-self: center;
-    cursor: pointer;
+/*-------------------------------
+           Header
+--------------------------------*/
+.game-nav {
+    grid-area: game-nav;
+    padding: 10px;
+    justify-items: center;
+
+    display: grid;
+    grid-template: 10% 10% / repeat(4, 1fr);
+    grid-template-areas: "title title stars stars"
+                         "timer timer counter reset";
 }
+
+.title {
+    grid-area: title;
+    justify-self: start;
+    font-size: 1rem;
+    padding: 5px 0;
+}
+
+.game-nav .stars {
+    grid-area: stars;
+    justify-self: end;
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+
+.game-nav .stars li {
+    display: inline-block;
+    margin: 0;
+
+}
+
+.timer {
+    grid-area: timer;
+    justify-self: start;
+}
+
+.counter {
+    grid-area: counter;
+    justify-self: start;
+}
+.reset {
+    grid-area: reset;
+    justify-self: end;
+}
+
+/*-------------------------------
+           Game-board
+---------------------------------*/
 
 .box {
-  background-color: red;
-  border: 2px solid green;
-  height: 10vh;
-  width: 10vw;
-  margin: 10px;
-  padding: 10px;
+    background-color: red;
+    border: 2px solid green;
+    height: 10vh;
+    width: 10vw;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
 }
+
+/*-------------------------------
+           Aside
+--------------------------------*/
+
+
+/*-------------------------------
+           Footer
+--------------------------------*/

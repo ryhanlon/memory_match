@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="static/css/normalize.css">
@@ -25,9 +26,21 @@
 </head>
 	<body>
 		<div class="body-container">
-			<header>
-				<!-- add title, leader board, reset button-->
+			<header class="game-nav">
+				<h1 class="title">Memory Match</h1>
 
+				<!-- add title, leader board, reset button-->
+				<div class="stars">
+					<ul>
+						<li><i class="fa fa-star"></i></li>
+						<li><i class="fa fa-star"></i></li>
+						<li><i class="fa fa-star"></i></li>
+					</ul>
+				</div>
+				<div class="timer">:23:56</div>
+				<div class="counter">12</div>
+				<!-- toggle play/reset -->
+				<div class="reset"><i class="fa fa-redo"></i></div>
 			</header>
 
 			<aside>
@@ -36,7 +49,7 @@
 
 			<main class="main-container">
 				<!-- 16 square game board -->
-				<h1>hello! I'm working</h1>
+
 			</main>
 
 			<footer>

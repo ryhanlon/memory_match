@@ -2,16 +2,17 @@
 
 
 // const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
-const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"]];
-
+const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
 
 // builds the game board
 
   for (let animal of animals) {
-   console.log(animal);
+   // console.log(animal);
     let buildBoxes = `<div class="box ${animal[1]}">${animal[0]}<div>`;
     $(".main-container").append(buildBoxes);
+    // let mainContainer = document.querySelector('.main-container');
+    // mainContainer.innerHTML = buildBoxes;
   }
 /*
  * Display the cards on the page
