@@ -7,40 +7,38 @@ const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "m
 
 // builds the game board
 
-  for (let animal of animals) {
-   // console.log(animal);
-    let buildBoxes = `<div class="box ${animal[1]}">${animal[0]}<div>`;
-    $(".game-board").append(buildBoxes);
-    // let mainContainer = document.querySelector('.main-container');
-    // mainContainer.innerHTML = buildBoxes;
-  }
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+const buildGameBoard = () => {
+	$('.game-board').empty();
+
+	for (let animal of animals) {
+		// console.log(animal);
+		let buildBoxes = `<div class="box ${animal[1]}">${animal[0]}<div>`;
+		$(".game-board").append(buildBoxes);
+		// let mainContainer = document.querySelector('.main-container');
+		// mainContainer.innerHTML = buildBoxes;
+	}
+};
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(animals) {
+    let currentIndex = animals.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        temporaryValue = animals[currentIndex];
+        animals[currentIndex] = animals[randomIndex];
+        animals[randomIndex] = temporaryValue;
     }
 
-    return array;
+    return buildGameBoard(animals);
 }
 
+$('button').on('click', () => shuffle(animals));
+
+
 // use .attr('class'); to get class name value of first pick to compare with the second pic
-
-
-
-
 
 
 /*
