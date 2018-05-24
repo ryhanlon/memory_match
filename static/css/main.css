@@ -60,17 +60,19 @@ video {
     grid-area: game-nav;
     padding: 10px;
     justify-items: center;
-
+    margin: 1rem;
     display: grid;
-    grid-template: 10% 10% / repeat(4, 1fr);
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
     grid-template-areas: "title title stars stars"
-                         "timer timer counter reset";
+                         "timer timer counter counter"
+                          "button button button button";
+    font-size: 1.2rem;
 }
 
 .title {
     grid-area: title;
     justify-self: start;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 5px 0;
 }
 
@@ -79,6 +81,7 @@ video {
     justify-self: end;
     margin: 0 5px 0 0;
     padding: 0;
+    font-size: 1rem;
 }
 
 .game-nav .stars li {
@@ -94,11 +97,35 @@ video {
 
 .counter {
     grid-area: counter;
-    justify-self: start;
-}
-.reset {
-    grid-area: reset;
     justify-self: end;
+}
+
+/*.reset {*/
+    /*grid-area: reset;*/
+    /*justify-self: end;*/
+/*}*/
+
+.button-container {
+    grid-area: button;
+    justify-self: center;
+    color: #2e3d49;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin: .5rem 1rem;
+}
+
+.button {
+    background-color: #aa7ecd;
+    width: 70vw;
+    border-radius: 10px;
+    border-style: groove;
+    padding: .5rem;
+}
+
+.button:hover {
+    background-color: #5b446e;
 }
 
 /*-------------------------------
@@ -113,13 +140,27 @@ video {
 }
 
 .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: red;
-    border: 2px solid green;
-    height: 10vh;
-    width: 10vw;
-    margin: 10px;
-    padding: 10px;
+    /*border: 2px solid #2d0507;*/
+    height: 13vh;
+    width: 22vw;
+    margin: .1rem;
+    padding: .1rem;
     cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 1px #6c6c6c;
+}
+
+.box:hover {
+    background-color: #2e3d49;
+}
+
+.box:active {
+    background-color: #90bbe8;
 }
 
 /*-------------------------------
