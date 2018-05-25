@@ -5,23 +5,41 @@
 const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
 
-// builds the game board
+// match or not match
+
+// Turn cards over
+
+const addListener = () => {
+	const allCards = document.querySelectorAll('.box');
+	console.log(allCards[0]);
+
+	allCards.forEach(function (card) {
+		card.addEventListener('click', function (e) {
+			card.classList.add('open', 'show');
+		}, true)
+	});
+
+};
+
+// Builds the game board
 
 const buildGameBoard = () => {
-	$('.game-board').empty();
+	const gameBoard = $('.game-board');
+
+	gameBoard.empty();
 
 	for (let animal of animals) {
 		// console.log(animal);
-		let buildBoxes = `<div class="box ${animal[1]}">${animal[0]}<div>`;
-		$(".game-board").append(buildBoxes);
-		// let mainContainer = document.querySelector('.main-container');
-		// mainContainer.innerHTML = buildBoxes;
+		let buildBoxes = `<div class="card box ${animal[1]}">${animal[0]}<div>`;
+		gameBoard.append(buildBoxes);
+
 	}
+	addListener();
 };
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(animals) {
+const shuffle = (animals) => {
     let currentIndex = animals.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
@@ -33,10 +51,24 @@ function shuffle(animals) {
     }
 
     return buildGameBoard(animals);
-}
+};
 
+
+// Click button to start game
 $('button').on('click', () => shuffle(animals));
 
+
+
+
+
+// Choose two cards
+// // const selectCard = () => {
+// 	$('.box').on(click, () => {
+// 		$(this).hide();
+// 		    console.log("clicked me");
+// 	});
+
+// };
 
 // use .attr('class'); to get class name value of first pick to compare with the second pic
 

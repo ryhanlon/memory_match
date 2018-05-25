@@ -5,8 +5,16 @@ font-family: 'Alegreya', serif;
 font-family: 'Indie Flower', cursive;
 */
 
+
+
 html {
     box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 body,
@@ -131,6 +139,33 @@ video {
 /*-------------------------------
            Game-board
 ---------------------------------*/
+.game-board {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.game-board .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
 
 .game-board {
     grid-area: game-board;
@@ -161,6 +196,23 @@ video {
 
 .box:active {
     background-color: #90bbe8;
+}
+
+/* cards */
+.game-board .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.game-board .card.show {
+    font-size: 28px;
+}
+
+.game-board .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
 }
 
 /*-------------------------------
