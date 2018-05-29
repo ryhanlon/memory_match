@@ -5,21 +5,56 @@
 const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
 
+const allCards = document.querySelector('.game-board');
+let openCards = [];
+
+
 // match or not match
+const compareCards = () => {
+	// Compares the cards using data-match attribute
+	if (openCards[0].dataset.match === openCards[1].dataset.match) {
+		// console.log(openCards.dataset.match);
+
+		// Clears out the array for the next turn after a match
+		openCards.splice(0, openCards.length);
+
+		// Adds classes
+		openCards[0].classList.add('match');
+		openCards[0].classList.add('open');
+		openCards[0].classList.add('show');
+
+		openCards[1].classList.add('match');
+		openCards[1].classList.add('open');
+		openCards[1].classList.add('show');
+
+	} else {
+
+		// console.log('sorry, no match');
+		// If cards don't match, turns the cards back over and removes classes.
+		setTimeout(function () {
+			openCards.forEach(function (card) {
+				card.classList.remove('open', 'show');
+			});
+			// Clears out the array for the next turn
+			openCards.splice(0, openCards.length);
+		}, 1000);
+	}
+};
 
 
-
-// Turn card over
+// Turn cards over
 const turnCardOver = (event) => {
 	event.target.classList.add('open', 'show');
-	console.log(event);
+	openCards.push(event.target);
+
+	if (openCards.length === 2) {
+		compareCards();
+	}
 };
 
 
 // Add event listener for click to turn over the cards
 const addListener = () => {
-	const allCards = document.querySelector('.game-board');
-	console.log(allCards[0]);
 	allCards.addEventListener('click', turnCardOver, true);
 };
 
@@ -32,7 +67,7 @@ const buildGameBoard = () => {
 
 	for (let animal of animals) {
 		// console.log(animal);
-		let buildBoxes = `<div class="card box ${animal[1]}">${animal[0]}<div>`;
+		let buildBoxes = `<div class="card box" data-match=${animal[1]}>${animal[0]}<div>`;
 		gameBoard.append(buildBoxes);
 
 	}
