@@ -7,22 +7,24 @@ const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "m
 
 // match or not match
 
-// Turn cards over
 
-const addListener = () => {
-	const allCards = document.querySelectorAll('.box');
-	console.log(allCards[0]);
 
-	allCards.forEach(function (card) {
-		card.addEventListener('click', function (e) {
-			card.classList.add('open', 'show');
-		}, true)
-	});
-
+// Turn card over
+const turnCardOver = (event) => {
+	event.target.classList.add('open', 'show');
+	console.log(event);
 };
 
-// Builds the game board
 
+// Add event listener for click to turn over the cards
+const addListener = () => {
+	const allCards = document.querySelector('.game-board');
+	console.log(allCards[0]);
+	allCards.addEventListener('click', turnCardOver, true);
+};
+
+
+// Builds the game board
 const buildGameBoard = () => {
 	const gameBoard = $('.game-board');
 
