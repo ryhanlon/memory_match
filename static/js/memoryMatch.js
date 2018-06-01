@@ -9,6 +9,7 @@ const allCards = document.querySelector('.game-board');
 let openCards = [];
 let counter = 0;
 let countStars = 0;
+let remainingStars = 5;
 
 // Winner anouncement
 const winnerMessage = () => {
@@ -17,15 +18,18 @@ const winnerMessage = () => {
 
 // After four missed matches, delete a star
 const starCounter = () => {
-	let remainingStars = 5;
+
 	countStars += 1;
 	console.log(`here are stars ${countStars}`);
+
 	if (countStars === 2) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
+		console.log("remainingStars:" + remainingStars);
 			if (remainingStars === 0) {
 		    	stopTimer();
+
 			}
 	}
 };
@@ -42,9 +46,9 @@ const stopTimer = () => {
 	clearInterval(startTimer);
 };
 
-const startTimer = () => {
-	let incrementor = setInterval(timerCount, 1000);
-};
+const startTimer = setInterval(timerCount, 1000);
+
+
 
 
 // match or not match
