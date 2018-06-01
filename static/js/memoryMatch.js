@@ -4,9 +4,47 @@
 // const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
 const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
-
+// Gobal variables
 const allCards = document.querySelector('.game-board');
 let openCards = [];
+let counter = 0;
+let countStars = 0;
+
+// Winner anouncement
+const winnerMessage = () => {
+
+};
+
+// After four missed matches, delete a star
+const starCounter = () => {
+	let remainingStars = 5;
+	countStars += 1;
+	console.log(`here are stars ${countStars}`);
+	if (countStars === 2) {
+		$('ul .star-holder:first-child').remove();
+		countStars = 0;
+		remainingStars -= 1;
+			if (remainingStars === 0) {
+		    	stopTimer();
+			}
+	}
+};
+
+
+// Time how long each player takes to match all of the matches
+const timerCount = () => {
+	counter += 1;
+	$('.stop-watch').html(counter);
+	console.log(counter);
+};
+
+const stopTimer = () => {
+	clearInterval(startTimer);
+};
+
+const startTimer = () => {
+	let incrementor = setInterval(timerCount, 1000);
+};
 
 
 // match or not match
@@ -28,7 +66,7 @@ const compareCards = () => {
 		openCards[1].classList.add('show');
 
 	} else {
-
+		starCounter();
 		// console.log('sorry, no match');
 		// If cards don't match, turns the cards back over and removes classes.
 		setTimeout(function () {
@@ -38,6 +76,7 @@ const compareCards = () => {
 			// Clears out the array for the next turn
 			openCards.splice(0, openCards.length);
 		}, 1000);
+
 	}
 };
 
@@ -72,6 +111,7 @@ const buildGameBoard = () => {
 
 	}
 	addListener();
+	startTimer();
 };
 
 
