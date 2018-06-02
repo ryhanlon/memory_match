@@ -10,6 +10,7 @@ let openCards = [];
 let counter = 0;
 let countStars = 0;
 let remainingStars = 5;
+let timer;
 
 // Winner anouncement
 const winnerMessage = () => {
@@ -43,10 +44,12 @@ const timerCount = () => {
 };
 
 const stopTimer = () => {
-	clearInterval(startTimer);
+	clearInterval(timer);
 };
 
-const startTimer = setInterval(timerCount, 1000);
+const startTimer = () => {
+	timer = setInterval(timerCount, 1000);
+};
 
 
 
@@ -136,7 +139,10 @@ const shuffle = (animals) => {
 
 
 // Click button to start game
-$('button').on('click', () => shuffle(animals));
+$('button').on('click', () => {
+	shuffle(animals);
+	startTimer();
+});
 
 
 
