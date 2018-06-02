@@ -11,38 +11,18 @@ let counter = 0;
 let countStars = 0;
 let remainingStars = 5;
 let timer;
+let points = 0;
+
 
 // Winner anouncement
 const winnerMessage = () => {
-
-};
-
-// After four missed matches, delete a star
-const starCounter = () => {
-
-	countStars += 1;
-	console.log(`here are stars ${countStars}`);
-
-	if (countStars === 2) {
-		$('ul .star-holder:first-child').remove();
-		countStars = 0;
-		remainingStars -= 1;
-		console.log("remainingStars:" + remainingStars);
-			if (remainingStars === 0) {
-		    	stopTimer();
-
-			}
-	}
+	// modal window appears with points, congratts, total time and remaining stars
 };
 
 
-// Time how long each player takes to match all of the matches
-const timerCount = () => {
-	counter += 1;
-	$('.stop-watch').html(counter);
-	console.log(counter);
-};
-
+/*-------------------------------------------------------------
+  How long each player takes to match all of the matches
+  -----------------------------------------------------------*/
 const stopTimer = () => {
 	clearInterval(timer);
 };
@@ -51,14 +31,58 @@ const startTimer = () => {
 	timer = setInterval(timerCount, 1000);
 };
 
+const timerCount = () => {
+	counter += 1;
+	$('.stop-watch').html(`${counter}`);
+	console.log(counter);
+};
+
+/*-------------------------------------------------------------
+  		Counts the points earned per match
+  -----------------------------------------------------------*/
+
+const countPoints = () => {
+	points += 10;
+	$('.point-count').html(points);
+	if (points === 80) {
+		stopTimer();
+		console.log('points are 80');
+		// winnerMessage();
+		// add name and points the leader board
+	}
+};
+
+/*-------------------------------------------------------------
+ 		After four missed matches, delete a star
+  -----------------------------------------------------------*/
+const starCounter = () => {
+
+	countStars += 1;
+	// console.log(`here are stars ${countStars}`);
+
+	if (countStars === 5) {
+		$('ul .star-holder:first-child').remove();
+		countStars = 0;
+		remainingStars -= 1;
+			if (remainingStars === 0) {
+		    	stopTimer();
+		    	console.log("timer should stop");
+
+			}
+	}
+};
 
 
-
-// match or not match
+/*-------------------------------------------------------------
+ 		Card logic: Checks if cards match or not
+  -----------------------------------------------------------*/
 const compareCards = () => {
 	// Compares the cards using data-match attribute
 	if (openCards[0].dataset.match === openCards[1].dataset.match) {
 		// console.log(openCards.dataset.match);
+
+		// Add 10 points for each correct match
+		countPoints();
 
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
@@ -74,7 +98,7 @@ const compareCards = () => {
 
 	} else {
 		starCounter();
-		// console.log('sorry, no match');
+
 		// If cards don't match, turns the cards back over and removes classes.
 		setTimeout(function () {
 			openCards.forEach(function (card) {
@@ -88,7 +112,7 @@ const compareCards = () => {
 };
 
 
-// Turn cards over
+// Turn  two cards over
 const turnCardOver = (event) => {
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
@@ -105,7 +129,9 @@ const addListener = () => {
 };
 
 
-// Builds the game board
+/*-------------------------------------------------------------
+ 		Builds the game board
+  -----------------------------------------------------------*/
 const buildGameBoard = () => {
 	const gameBoard = $('.game-board');
 
@@ -118,7 +144,6 @@ const buildGameBoard = () => {
 
 	}
 	addListener();
-	startTimer();
 };
 
 
@@ -143,30 +168,3 @@ $('button').on('click', () => {
 	shuffle(animals);
 	startTimer();
 });
-
-
-
-
-
-// Choose two cards
-// // const selectCard = () => {
-// 	$('.box').on(click, () => {
-// 		$(this).hide();
-// 		    console.log("clicked me");
-// 	});
-
-// };
-
-// use .attr('class'); to get class name value of first pick to compare with the second pic
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
