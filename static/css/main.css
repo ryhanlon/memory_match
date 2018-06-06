@@ -55,7 +55,7 @@ video {
 .main-container {
     display: grid;
     position: relative;
-    grid-template: 10% 10% repeat(4, 17.5%) 10% / repeat(4,1fr);
+    grid-template: 7% 7% repeat(4, 19%) 10% / repeat(4,1fr);
     grid-template-areas: "game-nav game-nav game-nav game-nav"
                          "game-board game-board game-board game-board"
                          "footer footer footer footer";
@@ -68,12 +68,11 @@ video {
     grid-area: game-nav;
     padding: 10px;
     justify-items: center;
-    margin: 1rem;
+    /*margin: 1rem;*/
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
     grid-template-areas: "title title stars stars"
-                         "timer timer counter counter"
-                          "button button button button";
+                         "timer button button counter";
     font-size: 1.2rem;
 }
 
@@ -126,10 +125,10 @@ video {
 
 .button {
     background-color: #aa7ecd;
-    width: 70vw;
+    width: 25vw;
     border-radius: 10px;
     border-style: groove;
-    padding: .5rem;
+    /*padding: .5rem;*/
 }
 
 .button:hover {
@@ -140,47 +139,44 @@ video {
            Game-board
 ---------------------------------*/
 .game-board {
-    width: 660px;
-    min-height: 680px;
+    grid-area: game-board;
+    justify-self: center;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    width: 100vw;
+    min-height: 70vh;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: .5rem;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    /*margin: 0 0 3em;*/
 }
 
 .game-board .card {
-    height: 125px;
-    width: 125px;
+    /*height: 4rem;*/
+    /*width: 4rem;*/
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .game-board {
-    grid-area: game-board;
-    justify-self: center;
-    display: grid;
-    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+
 }
 
 .box {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    background-color: red;
-    /*border: 2px solid #2d0507;*/
-    height: 13vh;
+    align-items: center;
+    height: 15vh;
     width: 22vw;
     margin: .1rem;
     padding: .1rem;
