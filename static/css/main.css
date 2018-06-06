@@ -52,10 +52,10 @@ video {
     /*cursor: pointer;*/
 /*}*/
 
-.main-container {
+.body-container {
     display: grid;
     position: relative;
-    grid-template: 7% 7% repeat(4, 19%) 10% / repeat(4,1fr);
+    grid-template: 5% 5% repeat(4, 20%) 10% / repeat(4, 1fr);
     grid-template-areas: "game-nav game-nav game-nav game-nav"
                          "game-board game-board game-board game-board"
                          "footer footer footer footer";
@@ -79,8 +79,9 @@ video {
 .title {
     grid-area: title;
     justify-self: start;
-    font-size: 1.2rem;
-    padding: 5px 0;
+    font-size: 1.7rem;
+    padding: 5px 0 0;
+    margin: 0 0 0 5px;
 }
 
 .game-nav .stars {
@@ -94,17 +95,19 @@ video {
 .game-nav .stars li {
     display: inline-block;
     margin: 0;
-
 }
 
 .timer {
     grid-area: timer;
     justify-self: start;
+    padding: 5px 0;
+
 }
 
 .counter {
     grid-area: counter;
     justify-self: end;
+    margin: 0 5px 0 0;
 }
 
 /*.reset {*/
@@ -116,7 +119,7 @@ video {
     grid-area: button;
     justify-self: center;
     color: #2e3d49;
-    padding: 5px;
+    /*padding: 5px;*/
     text-align: center;
     font-size: 1.8rem;
     cursor: pointer;
@@ -126,6 +129,7 @@ video {
 .button {
     background-color: #aa7ecd;
     width: 25vw;
+    height: 6vh;
     border-radius: 10px;
     border-style: groove;
     /*padding: .5rem;*/
