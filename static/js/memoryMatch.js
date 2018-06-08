@@ -14,11 +14,19 @@ let timer;
 let points = 0;
 
 
-// Winner anouncement
-const winnerMessage = () => {
-	// modal window appears with points, congratts, total time and remaining stars
+// Winner announcement, shows points, congratts message, total time and remaining stars
+const endGameAlertWinner = () => {
+
 };
 
+// Looser announcement, shows points, congratts message, total time and remaining stars
+const endGameAlertLoser = () => {
+	const loseMessage = `<h3 class="endgame-message">Sorry game over.</h3>`;
+
+	const messageHeading = document.querySelector('.endgame-container');
+	messageHeading.innerHTML = loseMessage;
+
+};
 
 /*-------------------------------------------------------------
   How long each player takes to match all of the matches
@@ -47,7 +55,7 @@ const countPoints = () => {
 	if (points === 80) {
 		stopTimer();
 		console.log('points are 80');
-		// winnerMessage();
+		endGameAlertWinner();
 		// add name and points the leader board
 	}
 };
@@ -60,13 +68,13 @@ const starCounter = () => {
 	countStars += 1;
 	// console.log(`here are stars ${countStars}`);
 
-	if (countStars === 5) {
+	if (countStars === 1) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
 			if (remainingStars === 0) {
 		    	stopTimer();
-		    	console.log("timer should stop");
+		    	endGameAlertLoser();
 
 			}
 	}

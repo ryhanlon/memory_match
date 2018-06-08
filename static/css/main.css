@@ -214,6 +214,14 @@ video {
 --------------------------------*/
 
 
+
+.endgame-container {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background-color: yellow;
+    color: black;
+}
 /*-------------------------------
            Footer
 --------------------------------*/
