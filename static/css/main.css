@@ -61,8 +61,9 @@ video {
                          "footer footer footer footer";
 }
 
+
 /*-------------------------------
-           Header
+     Header: game controls
 --------------------------------*/
 .game-nav {
     grid-area: game-nav;
@@ -212,16 +213,29 @@ video {
 /*-------------------------------
            Aside
 --------------------------------*/
-
-
-
 .endgame-container {
     position: absolute;
-    width: 100px;
-    height: 200px;
-    background-color: yellow;
-    color: black;
+    width: 100vw;
+    height: 100vh;
+    /*background-color: rgba(50, 37, 60, 0.75);*/
+    color: #ffffff;
 }
+
+.endgame-message {
+    line-height: 2.2;
+    text-align: center;
+    padding: 15rem 1rem 0;
+}
+
+.endgame-container .show-message {
+    background-color: rgba(50, 37, 60, 0.75);
+}
+
+/*-------------------------------
+           Aside
+--------------------------------*/
+
+
 /*-------------------------------
            Footer
 --------------------------------*/

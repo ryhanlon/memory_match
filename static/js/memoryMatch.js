@@ -4,29 +4,47 @@
 // const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
 const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
-// Gobal variables
+// Global variables
 const allCards = document.querySelector('.game-board');
 let openCards = [];
 let counter = 0;
 let countStars = 0;
 let remainingStars = 5;
-let timer;
+let timer = 0;
 let points = 0;
 
 
+/*-------------------------------------------------------------
+      			 Winner and Loser announcements
+  -----------------------------------------------------------*/
 // Winner announcement, shows points, congratts message, total time and remaining stars
-const endGameAlertWinner = () => {
+// const endGameAlertWinner = () => {
+// 	const winMessage = `Winner!
+// 					 Your points: ${points}
+// 					 Your time: ${timer}
+// 					 Your stars: ${remainingStars}
+// 					 Push 'Play' to try again.`;
+//
+// 	const messageHeading = document.querySelector('.endgame-message');
+// 	messageHeading.innerText = winMessage;
+//
+// };
 
-};
 
 // Looser announcement, shows points, congratts message, total time and remaining stars
-const endGameAlertLoser = () => {
-	const loseMessage = `<h3 class="endgame-message">Sorry game over.</h3>`;
+// const endGameAlertLoser = () => {
+// 	const loseMessage = `Game over!
+// 					     Your points: ${points}
+// 					     Your time: ${timer}
+// 					     Your stars: ${remainingStars}
+// 					     Push 'Play' to try again.`;
+//
+// 	const messageHeading = document.querySelector('.endgame-message');
+// 	const messageContainer = document.querySelector('.endgame-container');
+// 	messageHeading.innerText = loseMessage;
+// 	messageContainer.classList.add('show-message');
+// };
 
-	const messageHeading = document.querySelector('.endgame-container');
-	messageHeading.innerHTML = loseMessage;
-
-};
 
 /*-------------------------------------------------------------
   How long each player takes to match all of the matches
@@ -45,6 +63,7 @@ const timerCount = () => {
 	console.log(counter);
 };
 
+
 /*-------------------------------------------------------------
   		Counts the points earned per match
   -----------------------------------------------------------*/
@@ -60,13 +79,13 @@ const countPoints = () => {
 	}
 };
 
+
 /*-------------------------------------------------------------
  		After four missed matches, delete a star
   -----------------------------------------------------------*/
 const starCounter = () => {
 
 	countStars += 1;
-	// console.log(`here are stars ${countStars}`);
 
 	if (countStars === 1) {
 		$('ul .star-holder:first-child').remove();
@@ -75,15 +94,16 @@ const starCounter = () => {
 			if (remainingStars === 0) {
 		    	stopTimer();
 		    	endGameAlertLoser();
-
 			}
 	}
 };
 
 
 /*-------------------------------------------------------------
- 		Card logic: Checks if cards match or not
+ 					Card logic (game logic)
   -----------------------------------------------------------*/
+
+// Checks if cards match, if not turn back over
 const compareCards = () => {
 	// Compares the cards using data-match attribute
 	if (openCards[0].dataset.match === openCards[1].dataset.match) {
@@ -95,7 +115,7 @@ const compareCards = () => {
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
 
-		// Adds classes
+		// Adds classes, turns over cards
 		openCards[0].classList.add('match');
 		openCards[0].classList.add('open');
 		openCards[0].classList.add('show');
@@ -120,7 +140,7 @@ const compareCards = () => {
 };
 
 
-// Turn  two cards over
+// Turn two cards over
 const turnCardOver = (event) => {
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
@@ -169,6 +189,20 @@ const shuffle = (animals) => {
 
     return buildGameBoard(animals);
 };
+
+
+// Reset the game
+// const reset = () => {
+// 	let resetButton = $('button').on('click', () => {
+// 		allCards = document.querySelector('.game-board');
+// 		openCards = [];
+// 		counter = 0;
+// 		countStars = 0;
+// 		remainingStars = 5;
+// 		timer = 0;
+// 		points = 0;
+// 	})
+// };
 
 
 // Click button to start game
