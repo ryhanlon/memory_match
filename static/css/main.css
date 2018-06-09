@@ -215,10 +215,16 @@ video {
 --------------------------------*/
 .endgame-container {
     position: absolute;
-    width: 100vw;
+    /*z-index: 1;*/
+    top: 0;
+    left: -100vw;
+    width: 110vw;
     height: 100vh;
-    /*background-color: rgba(50, 37, 60, 0.75);*/
+    background-color: rgba(50, 37, 60, 0.75);
     color: #ffffff;
+    opacity: 0;
+    /*display: none;*/
+    transition: all 1s;
 }
 
 .endgame-message {
@@ -227,8 +233,9 @@ video {
     padding: 15rem 1rem 0;
 }
 
-.endgame-container .show-message {
-    background-color: rgba(50, 37, 60, 0.75);
+.show-message {
+    left: 0;
+    opacity: 1;
 }
 
 /*-------------------------------

@@ -32,18 +32,20 @@ let points = 0;
 
 
 // Looser announcement, shows points, congratts message, total time and remaining stars
-// const endGameAlertLoser = () => {
-// 	const loseMessage = `Game over!
-// 					     Your points: ${points}
-// 					     Your time: ${timer}
-// 					     Your stars: ${remainingStars}
-// 					     Push 'Play' to try again.`;
-//
-// 	const messageHeading = document.querySelector('.endgame-message');
-// 	const messageContainer = document.querySelector('.endgame-container');
-// 	messageHeading.innerText = loseMessage;
-// 	messageContainer.classList.add('show-message');
-// };
+const endGameAlertLoser = () => {
+	console.log('loser message is called');
+	const loseMessage = `Game over!
+					     Your points: ${points}
+					     Your time: ${timer}
+					     Your stars: ${remainingStars}
+					     Push 'Play' to try again.`;
+
+	const messageContainer = document.querySelector('.endgame-container');
+	messageContainer.classList.add('show-message');
+	const messageHeading = document.querySelector('.endgame-message');
+	messageHeading.innerText = loseMessage;
+
+};
 
 
 /*-------------------------------------------------------------
@@ -190,7 +192,7 @@ const shuffle = (animals) => {
     return buildGameBoard(animals);
 };
 
-
+// clear timer, stars, points, show-message
 // Reset the game
 // const reset = () => {
 // 	let resetButton = $('button').on('click', () => {
@@ -207,6 +209,8 @@ const shuffle = (animals) => {
 
 // Click button to start game
 $('button').on('click', () => {
+
+	// reset();
 	shuffle(animals);
 	startTimer();
 });
