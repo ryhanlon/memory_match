@@ -80,7 +80,7 @@ video {
 .title {
     grid-area: title;
     justify-self: start;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     padding: 5px 0 0;
     margin: 0 0 0 5px;
 }
@@ -175,8 +175,8 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
-    width: 22vw;
+    /*height: 15vh;*/
+    /*width: 22vw;*/
     margin: .1rem;
     padding: .1rem;
     cursor: pointer;
@@ -211,13 +211,13 @@ video {
 }
 
 /*-------------------------------
-           Aside
+      Winner/Loser Message
 --------------------------------*/
 .endgame-container {
     position: absolute;
     /*z-index: 1;*/
     top: 0;
-    left: -100vw;
+    left: -124vw;
     width: 110vw;
     height: 100vh;
     background-color: rgba(50, 37, 60, 0.75);
