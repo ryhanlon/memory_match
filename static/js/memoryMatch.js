@@ -7,7 +7,7 @@ const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "m
 // Global variables
 const allCards = document.querySelector('.game-board');
 let openCards = [];
-let counter = 0;
+let timeCounter = 0;
 let countStars = 0;
 let remainingStars = 5;
 let timer = 0;
@@ -36,15 +36,23 @@ const endGameAlertLoser = () => {
 	console.log('loser message is called');
 	const loseMessage = `Game over!
 					     Your points: ${points}
-					     Your time: ${timer}
-					     Your stars: ${remainingStars}
-					     Push 'Play' to try again.`;
+					     Your time: ${timeCounter}
+					     Your stars: ${remainingStars}`;
 
 	const messageContainer = document.querySelector('.endgame-container');
+	messageContainer.classList.remove('remove-message');
 	messageContainer.classList.add('show-message');
 	const messageHeading = document.querySelector('.endgame-message');
 	messageHeading.innerText = loseMessage;
 
+};
+
+const removeGameAlertLoser = () => {
+	const message = document.querySelector('.endgame-container');
+	message.classList.remove('show-message');
+	message.classList.add('remove-message');
+
+    console.log('Removed message.');
 };
 
 
@@ -60,9 +68,9 @@ const startTimer = () => {
 };
 
 const timerCount = () => {
-	counter += 1;
-	$('.stop-watch').html(`${counter}`);
-	console.log(counter);
+	timeCounter += 1;
+	$('.stop-watch').html(`${timeCounter}`);
+	console.log(timeCounter);
 };
 
 
@@ -76,10 +84,11 @@ const countPoints = () => {
 	if (points === 80) {
 		stopTimer();
 		console.log('points are 80');
-		endGameAlertWinner();
+		// endGameAlertWinner();
 		// add name and points the leader board
 	}
 };
+
 
 
 /*-------------------------------------------------------------
@@ -97,6 +106,14 @@ const starCounter = () => {
 		    	stopTimer();
 		    	endGameAlertLoser();
 			}
+	}
+};
+
+const returnStars = () => {
+	for (let i = 0; i <= 4; i++) {
+		const stars = $(`<li class="star-holder"><i class="fa fa-star"></i></li>`);
+		const starsContainer = $('.stars-container');
+		starsContainer.append(stars);
 	}
 };
 
@@ -192,25 +209,31 @@ const shuffle = (animals) => {
     return buildGameBoard(animals);
 };
 
-// clear timer, stars, points, show-message
-// Reset the game
-// const reset = () => {
-// 	let resetButton = $('button').on('click', () => {
-// 		allCards = document.querySelector('.game-board');
-// 		openCards = [];
-// 		counter = 0;
-// 		countStars = 0;
-// 		remainingStars = 5;
-// 		timer = 0;
-// 		points = 0;
-// 	})
-// };
+
+// Reset the game, clears timer and points, resets stars, removes looser message
+$('.reset-button').on('click', () => {
+		// Reset game control panel
+		// Clears out the array for the next turn
+	    openCards.splice(0, openCards.length);
+		timeCounter = 0;
+		countStars = 0;
+		remainingStars = 5;
+		points = 0;
+		// console.log(`Hey look at me ${timeCounter} and ${countStars} and ${remainingStars} and ${points}`);
+
+		// reset DOM for the control panel
+	    $('.stop-watch').html(timeCounter);
+	    $('.point-count').html(points);
+
+		returnStars();
+		removeGameAlertLoser();
+
+});
 
 
 // Click button to start game
-$('button').on('click', () => {
+$('.start-button').on('click', () => {
 
-	// reset();
 	shuffle(animals);
 	startTimer();
 });
