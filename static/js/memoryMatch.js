@@ -44,7 +44,6 @@ const endGameAlertLoser = () => {
 	messageContainer.classList.add('show-message');
 	const messageHeading = document.querySelector('.endgame-message');
 	messageHeading.innerText = loseMessage;
-
 };
 
 const removeGameAlertLoser = () => {
@@ -53,6 +52,7 @@ const removeGameAlertLoser = () => {
 	message.classList.add('remove-message');
 
     console.log('Removed message.');
+
 };
 
 
@@ -161,6 +161,7 @@ const compareCards = () => {
 
 // Turn two cards over
 const turnCardOver = (event) => {
+	event.stopPropagation();
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
 
@@ -212,28 +213,32 @@ const shuffle = (animals) => {
 
 // Reset the game, clears timer and points, resets stars, removes looser message
 $('.reset-button').on('click', () => {
-		// Reset game control panel
-		// Clears out the array for the next turn
-	    openCards.splice(0, openCards.length);
-		timeCounter = 0;
-		countStars = 0;
-		remainingStars = 5;
-		points = 0;
-		// console.log(`Hey look at me ${timeCounter} and ${countStars} and ${remainingStars} and ${points}`);
 
-		// reset DOM for the control panel
-	    $('.stop-watch').html(timeCounter);
-	    $('.point-count').html(points);
+	openCards.splice(0, openCards.length);
+	timeCounter = 0;
+	countStars = 0;
+	remainingStars = 5;
 
-		returnStars();
-		removeGameAlertLoser();
+
+	// reset DOM for the control panel
+	$('.stop-watch').html(timeCounter);
+	$('.point-count').html(points);
+	$('.card').removeClass('open show');
+
+	// Prevent clicks until game starts again
+	// $('#game-freeze').prop("disabled", true);
+	document.querySelector('#game-freeze div').disabled=true;
+
+	returnStars();
+	removeGameAlertLoser();
+
 
 });
 
 
 // Click button to start game
 $('.start-button').on('click', () => {
-
 	shuffle(animals);
 	startTimer();
 });
+
