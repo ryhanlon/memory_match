@@ -42,6 +42,7 @@ const endGameAlertLoser = () => {
 	const messageContainer = document.querySelector('.endgame-container');
 	messageContainer.classList.remove('remove-message');
 	messageContainer.classList.add('show-message');
+
 	const messageHeading = document.querySelector('.endgame-message');
 	messageHeading.innerText = loseMessage;
 };
@@ -51,7 +52,12 @@ const removeGameAlertLoser = () => {
 	message.classList.remove('show-message');
 	message.classList.add('remove-message');
 
+	// Prevent clicks until game starts again
+	// $('#game-freeze').prop("disabled", true);
+	// document.querySelector('#game-freeze div').disabled=true;
+
     console.log('Removed message.');
+
 
 };
 
@@ -161,7 +167,6 @@ const compareCards = () => {
 
 // Turn two cards over
 const turnCardOver = (event) => {
-	event.stopPropagation();
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
 
@@ -173,7 +178,12 @@ const turnCardOver = (event) => {
 
 // Add event listener for click to turn over the cards
 const addListener = () => {
-	allCards.addEventListener('click', turnCardOver, true);
+	allCards.addEventListener('click', turnCardOver);
+};
+
+// Remove event listener so click event doesn't happen until game starts
+const removeListener = () => {
+	allCards.removeEventListener('click', turnCardOver);
 };
 
 
@@ -187,7 +197,7 @@ const buildGameBoard = () => {
 
 	for (let animal of animals) {
 		// console.log(animal);
-		let buildBoxes = `<div class="card box" data-match=${animal[1]}>${animal[0]}<div>`;
+		let buildBoxes = `<li class="card box" data-match=${animal[1]}>${animal[0]}</li>`;
 		gameBoard.append(buildBoxes);
 
 	}
@@ -218,6 +228,7 @@ $('.reset-button').on('click', () => {
 	timeCounter = 0;
 	countStars = 0;
 	remainingStars = 5;
+	points = 0;
 
 
 	// reset DOM for the control panel
@@ -226,13 +237,15 @@ $('.reset-button').on('click', () => {
 	$('.card').removeClass('open show');
 
 	// Prevent clicks until game starts again
-	// $('#game-freeze').prop("disabled", true);
-	document.querySelector('#game-freeze div').disabled=true;
+	// $('.game-board').prop("disabled", true);
+	// document.querySelector('.game-board').disabled=true;
+	// $('game-board').attr("disabled", true);
+
+	removeListener();
 
 	returnStars();
 	removeGameAlertLoser();
-
-
+	$('.game-board').empty();
 });
 
 

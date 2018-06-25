@@ -129,11 +129,12 @@ video {
 
 .button {
     background-color: #aa7ecd;
-    width: 25vw;
-    height: 6vh;
+    width: 34vw;
+    height: 7vh;
     border-radius: 10px;
     border-style: groove;
     /*padding: .5rem;*/
+    font-size: 1.2rem;
 }
 
 .button:hover {
