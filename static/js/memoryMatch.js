@@ -11,24 +11,27 @@ let timeCounter = 0;
 let countStars = 0;
 let remainingStars = 5;
 let timer = 0;
-let points = 0;
+let points = 70;
 
 
 /*-------------------------------------------------------------
       			 Winner and Loser announcements
   -----------------------------------------------------------*/
 // Winner announcement, shows points, congratts message, total time and remaining stars
-// const endGameAlertWinner = () => {
-// 	const winMessage = `Winner!
-// 					 Your points: ${points}
-// 					 Your time: ${timer}
-// 					 Your stars: ${remainingStars}
-// 					 Push 'Play' to try again.`;
-//
-// 	const messageHeading = document.querySelector('.endgame-message');
-// 	messageHeading.innerText = winMessage;
-//
-// };
+const endGameAlertWinner = () => {
+	console.log('winner message is called');
+	const winMessage = `Winner!
+					 Your points: ${points}
+					 Your time: ${timer}
+					 Your stars: ${remainingStars}`;
+
+	const messageContainer = document.querySelector('.message-container');
+	messageContainer.classList.remove('remove-message');
+	messageContainer.classList.add('show-message');
+
+	const messageHeading = document.querySelector('.endgame-message');
+	messageHeading.innerText = winMessage;
+};
 
 
 // Looser announcement, shows points, congratts message, total time and remaining stars
@@ -39,7 +42,7 @@ const endGameAlertLoser = () => {
 					     Your time: ${timeCounter}
 					     Your stars: ${remainingStars}`;
 
-	const messageContainer = document.querySelector('.endgame-container');
+	const messageContainer = document.querySelector('.message-container');
 	messageContainer.classList.remove('remove-message');
 	messageContainer.classList.add('show-message');
 
@@ -48,7 +51,7 @@ const endGameAlertLoser = () => {
 };
 
 const removeGameAlertLoser = () => {
-	const message = document.querySelector('.endgame-container');
+	const message = document.querySelector('.message-container');
 	message.classList.remove('show-message');
 	message.classList.add('remove-message');
 
@@ -90,7 +93,7 @@ const countPoints = () => {
 	if (points === 80) {
 		stopTimer();
 		console.log('points are 80');
-		// endGameAlertWinner();
+		endGameAlertWinner();
 		// add name and points the leader board
 	}
 };
@@ -228,7 +231,7 @@ $('.reset-button').on('click', () => {
 	timeCounter = 0;
 	countStars = 0;
 	remainingStars = 5;
-	points = 0;
+	points = 70;
 
 
 	// reset DOM for the control panel

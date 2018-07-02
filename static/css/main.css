@@ -214,7 +214,7 @@ video {
 /*-------------------------------
       Winner/Loser Message
 --------------------------------*/
-.endgame-container {
+.message-container {
     position: absolute;
     /*z-index: 1;*/
     top: 0;

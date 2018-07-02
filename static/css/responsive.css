@@ -1,8 +1,45 @@
 /*----- iPad (768 x 1024) -----*/
 
 @media screen and (min-width: 767px) {
+    /*.body-container {*/
+        /*grid-template: 15% 70% 15% / 30% 70%;*/
+        /*grid-template-areas: "game-nav game-board"*/
+                             /*"game-nav game-board"*/
+                             /*"footer footer";*/
+    /*}*/
+    /*.game-nav {*/
+    /*grid-template: repeat(5, 1fr) / 1fr;*/
+    /*grid-template-areas: "title"*/
+                         /*"stars"*/
+                         /*"timer"*/
+                         /*"counter"*/
+                         /*"button";*/
+    /*font-size: 1.2rem;*/
+    /*}*/
+    /*.title {*/
+        /*font-size: 2.3rem;*/
+    /*}*/
+
+    /*.game-board {*/
+        /*width: 66vw;*/
+        /*min-height: 90vh;*/
+        /*margin: 3.5rem 1rem 3.5rem 1rem;*/
+    /*}*/
+}
+
+
+/*----- media-query for iPad Pro (1024 x 1366) -----*/
+
+@media screen and (min-width: 1023px) {
+
+
+}
+
+/*----- media-query for iPad Pro (1024 x 1366) -----*/
+
+@media screen and (min-width: 1023px) {
     .body-container {
-        grid-template: 15% 70% 15% / 30% 70%;
+        grid-template: 15% 70% 15% / 20% 80%;
         grid-template-areas: "game-nav game-board"
                              "game-nav game-board"
                              "footer footer";
@@ -25,12 +62,5 @@
         min-height: 90vh;
         margin: 3.5rem 1rem 3.5rem 1rem;
     }
-}
-
-
-/*----- media-query for iPad Pro (1024 x 1366) -----*/
-
-@media screen and (min-width: 1023px) {
 
 }
-
