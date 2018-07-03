@@ -55,10 +55,10 @@ video {
 .body-container {
     display: grid;
     position: relative;
-    grid-template: 5% 5% repeat(4, 20%) 10% / repeat(4, 1fr);
-    grid-template-areas: "game-nav game-nav game-nav game-nav"
-                         "game-board game-board game-board game-board"
-                         "footer footer footer footer";
+    grid-template: 5% 5% repeat(4, 20%) 10% / 1fr;
+    grid-template-areas: "game-nav"
+                         "game-board"
+                         "footer";
 }
 
 
@@ -252,3 +252,5 @@ video {
 /*-------------------------------
            Footer
 --------------------------------*/
+.footer-info {
+}

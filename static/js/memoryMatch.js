@@ -4,6 +4,8 @@
 // const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
 const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
 
+const animalPics = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
+
 // Global variables
 const allCards = document.querySelector('.game-board');
 let openCards = [];
@@ -11,19 +13,20 @@ let timeCounter = 0;
 let countStars = 0;
 let remainingStars = 5;
 let timer = 0;
-let points = 70;
+let points = 0;
+let countMoves = 0;
 
 
 /*-------------------------------------------------------------
       			 Winner and Loser announcements
   -----------------------------------------------------------*/
-// Winner announcement, shows points, congratts message, total time and remaining stars
+// Winner announcement
 const endGameAlertWinner = () => {
 	console.log('winner message is called');
-	const winMessage = `Winner!
-					 Your points: ${points}
-					 Your time: ${timer}
-					 Your stars: ${remainingStars}`;
+	const winMessage = `Winner!  Winner!
+					 In ${countMoves} moves you earned ${points} points.
+					 Your time was ${timer} seconds
+					 and you still have ${remainingStars} stars`;
 
 	const messageContainer = document.querySelector('.message-container');
 	messageContainer.classList.remove('remove-message');
@@ -34,13 +37,13 @@ const endGameAlertWinner = () => {
 };
 
 
-// Looser announcement, shows points, congratts message, total time and remaining stars
+// Looser announcement
 const endGameAlertLoser = () => {
 	console.log('loser message is called');
-	const loseMessage = `Game over!
-					     Your points: ${points}
-					     Your time: ${timeCounter}
-					     Your stars: ${remainingStars}`;
+	const loseMessage = `Game over!  Game over! 
+						 Oh no! You have  ${remainingStars}  stars!
+					     In ${countMoves} moves you earned ${points} points.
+					     Your time was ${timeCounter} seconds`;
 
 	const messageContainer = document.querySelector('.message-container');
 	messageContainer.classList.remove('remove-message');
@@ -98,6 +101,13 @@ const countPoints = () => {
 	}
 };
 
+/*-------------------------------------------------------------
+  		Counts the moves needed to match all cards
+  -----------------------------------------------------------*/
+const moveCounter = () => {
+	countMoves += 1;
+	console.log('these are the moves baby: ' + countMoves);
+};
 
 
 /*-------------------------------------------------------------
@@ -140,6 +150,9 @@ const compareCards = () => {
 		// Add 10 points for each correct match
 		countPoints();
 
+		// Count how many times clicked pair until all matched
+		moveCounter();
+
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
 
@@ -154,6 +167,7 @@ const compareCards = () => {
 
 	} else {
 		starCounter();
+		moveCounter();
 
 		// If cards don't match, turns the cards back over and removes classes.
 		setTimeout(function () {
@@ -174,6 +188,8 @@ const turnCardOver = (event) => {
 	openCards.push(event.target);
 
 	if (openCards.length === 2) {
+	// $(openCards).attr("disabled", "disabled");
+
 		compareCards();
 	}
 };
@@ -231,7 +247,7 @@ $('.reset-button').on('click', () => {
 	timeCounter = 0;
 	countStars = 0;
 	remainingStars = 5;
-	points = 70;
+	points = 0;
 
 
 	// reset DOM for the control panel
