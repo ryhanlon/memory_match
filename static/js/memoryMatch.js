@@ -15,6 +15,7 @@ let remainingStars = 5;
 let timer = 0;
 let points = 0;
 let countMoves = 0;
+let leaderBoardStorage = window.localStorage;
 
 
 /*-------------------------------------------------------------
@@ -67,6 +68,17 @@ const removeGameAlertLoser = () => {
 
 };
 
+/*-------------------------------------------------------------
+       Use local storage for Leader board
+  -----------------------------------------------------------*/
+const makeLeaderBoard = () => {
+	// Accesses current domain's localStorage object and adds a data item to it
+     leaderBoardStorage.setItem('topPlayer', 'Tom');
+     // Reading localStorage
+	let stats = localStorage.getItem('topPlayer');
+
+
+};
 
 /*-------------------------------------------------------------
   How long each player takes to match all of the matches
