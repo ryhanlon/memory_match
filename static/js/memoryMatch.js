@@ -80,6 +80,7 @@ const makeLeaderBoard = () => {
 
 };
 
+
 /*-------------------------------------------------------------
   How long each player takes to match all of the matches
   -----------------------------------------------------------*/
@@ -196,6 +197,9 @@ const compareCards = () => {
 
 // Turn two cards over
 const turnCardOver = (event) => {
+	// if ($('.show').length > 1) {
+	// 	return true;
+	// }
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
 

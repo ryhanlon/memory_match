@@ -59,6 +59,7 @@ video {
     grid-template-areas: "game-nav"
                          "game-board"
                          "footer";
+    justify-items: center;
 }
 
 
