@@ -45,6 +45,7 @@
                              "footer footer";
     }
     .game-nav {
+        justify-self: start;
         grid-template: repeat(5, 1fr) / 1fr;
         grid-template-areas: "title"
                              "stars"
@@ -60,7 +61,7 @@
     .game-board {
         width: 66vw;
         min-height: 90vh;
-        margin: 3.5rem 1rem 3.5rem 1rem;
+        margin: 3.5rem 1rem 3.5rem 5rem;
     }
 
     .game-nav .stars {

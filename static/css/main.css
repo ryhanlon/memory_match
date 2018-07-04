@@ -69,7 +69,7 @@ video {
 .game-nav {
     grid-area: game-nav;
     padding: 10px;
-    justify-items: center;
+    justify-self: center;
     /*margin: 1rem;*/
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(4, 1fr);
