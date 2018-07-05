@@ -68,8 +68,8 @@ video {
 --------------------------------*/
 .game-nav {
     grid-area: game-nav;
-    padding: 10px;
-    justify-self: center;
+    padding: 1rem;
+    justify-self: stretch;
     /*margin: 1rem;*/
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(4, 1fr);
@@ -80,18 +80,22 @@ video {
 
 .title {
     grid-area: title;
-    justify-self: start;
+    justify-self: stretch;
     font-size: 1.3rem;
-    padding: 5px 0 0;
-    margin: 0 0 0 5px;
+    /*padding: 5px 0 0;*/
+    /*margin: 0 0 0 5px;*/
 }
 
 .game-nav .stars {
     grid-area: stars;
-    justify-self: end;
-    margin: 0 5px 0 0;
+    justify-self: stretch;
+    /*margin: 0 5px 0 0;*/
     padding: 0;
     font-size: 1rem;
+}
+
+.stars-container {
+    text-align: right;
 }
 
 .game-nav .stars li {
@@ -101,15 +105,24 @@ video {
 
 .timer {
     grid-area: timer;
-    justify-self: start;
+    justify-self: stretch;
     padding: 5px 0;
-
 }
 
 .counter {
     grid-area: counter;
-    justify-self: end;
-    margin: 0 5px 0 0;
+    justify-self: stretch;
+    /*margin: 0 5px 0 0;*/
+    text-align: right;
+
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
 }
 
 /*.reset {*/
@@ -123,7 +136,7 @@ video {
     color: #2e3d49;
     /*padding: 5px;*/
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1rem;
     cursor: pointer;
     margin: .5rem 1rem;
 }
@@ -135,7 +148,7 @@ video {
     border-radius: 10px;
     border-style: groove;
     /*padding: .5rem;*/
-    font-size: 1.2rem;
+    /*font-size: 1.2rem;*/
 }
 
 .button:hover {
@@ -145,6 +158,10 @@ video {
 /*-------------------------------
            Game-board
 ---------------------------------*/
+/*.main-container {*/
+    /*padding: 0 1rem;*/
+/*}*/
+
 .game-board {
     grid-area: game-board;
     justify-self: center;
