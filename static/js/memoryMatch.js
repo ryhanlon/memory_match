@@ -14,6 +14,7 @@ let countStars = 0;
 let remainingStars = 5;
 let timer = 0;
 let points = 0;
+let matches = 0;
 let countMoves = 0;
 let leaderBoardStorage = window.localStorage;
 
@@ -110,6 +111,15 @@ const countPoints = () => {
 		stopTimer();
 		console.log('points are 80');
 		endGameAlertWinner();
+	}
+};
+
+const countMatches = () => {
+	matches += 1;
+	if (matches === 8) {
+		stopTimer();
+		console.log('all cards are matched');
+		endGameAlertWinner();
 		// add name and points the leader board
 	}
 };
@@ -130,7 +140,7 @@ const starCounter = () => {
 
 	countStars += 1;
 
-	if (countStars === 1) {
+	if (countStars === 3) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
@@ -162,6 +172,9 @@ const compareCards = () => {
 
 		// Add 10 points for each correct match
 		countPoints();
+
+		// Count each match, at eight matches end game
+		countMatches();
 
 		// Count how many times clicked pair until all matched
 		moveCounter();
