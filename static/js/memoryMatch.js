@@ -112,6 +112,7 @@ const countPoints = () => {
 		console.log('points are 80');
 		// endGameAlertWinner();
 	}
+	return points;
 };
 
 const countMatches = () => {
@@ -129,7 +130,9 @@ const countMatches = () => {
   -----------------------------------------------------------*/
 const moveCounter = () => {
 	countMoves += 1;
+	$('.move-counter').html(countMoves);
 	console.log('these are the moves baby: ' + countMoves);
+	return countMoves;
 };
 
 

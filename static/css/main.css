@@ -72,30 +72,38 @@ video {
     justify-self: stretch;
     /*margin: 1rem;*/
     display: grid;
-    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
-    grid-template-areas: "title title stars stars"
-                         "timer button button counter";
+    grid-template: repeat(3, .8fr) / repeat(4, 1fr);
+    grid-template-areas: "title title title title"
+                         "moves stars stars counter"
+                         "timer timer button button";
     font-size: 1.2rem;
+    padding: 0 .5 0 0 ;
+}
+
+.count-moves {
+    grid-area: moves;
+    justify-self: stretch;
 }
 
 .title {
     grid-area: title;
     justify-self: stretch;
-    font-size: 1.3rem;
-    /*padding: 5px 0 0;*/
-    /*margin: 0 0 0 5px;*/
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .game-nav .stars {
     grid-area: stars;
     justify-self: stretch;
     /*margin: 0 5px 0 0;*/
-    padding: 0;
+    /*padding: 0;*/
     font-size: 1rem;
 }
 
 .stars-container {
-    text-align: right;
+    text-align: left;
 }
 
 .game-nav .stars li {
@@ -115,14 +123,6 @@ video {
     /*margin: 0 5px 0 0;*/
     text-align: right;
 
-}
-
-.left-align {
-    text-align: left;
-}
-
-.right-align {
-    text-align: right;
 }
 
 /*.reset {*/
