@@ -27,7 +27,7 @@ const endGameAlertWinner = () => {
 	console.log('winner message is called');
 	const winMessage = `Winner!  Winner!
 					 In ${countMoves} moves you earned ${points} points.
-					 Your time was ${timer} seconds
+					 Your time was ${timeCounter} seconds
 					 and you still have ${remainingStars} stars`;
 
 	const messageContainer = document.querySelector('.message-container');
@@ -108,9 +108,9 @@ const countPoints = () => {
 	points += 10;
 	$('.point-count').html(points);
 	if (points === 80) {
-		stopTimer();
+		// stopTimer();
 		console.log('points are 80');
-		endGameAlertWinner();
+		// endGameAlertWinner();
 	}
 };
 
@@ -274,9 +274,12 @@ $('.reset-button').on('click', () => {
 
 	openCards.splice(0, openCards.length);
 	timeCounter = 0;
+	timer = 0;
 	countStars = 0;
 	remainingStars = 5;
 	points = 0;
+	matches = 0;
+	countMoves = 0;
 
 
 	// reset DOM for the control panel
