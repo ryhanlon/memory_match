@@ -166,8 +166,8 @@ video {
     grid-area: game-board;
     justify-self: center;
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-    width: 100vw;
+    grid-template: repeat(5, 1fr) / repeat(3, 1fr);
+    width: 95vw;
     min-height: 70vh;
     background: linear-gradient(160deg, #4824cf 0%, #aa7ecd 100%);
     padding: .5rem;
@@ -220,7 +220,7 @@ video {
 }
 
 .game-board .card.show {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .game-board .card.match {

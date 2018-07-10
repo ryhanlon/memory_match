@@ -16,6 +16,11 @@
     .button {
         font-size: 1.7rem;
     }
+
+    .game-board {
+        grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+
+    }
 }
 
 

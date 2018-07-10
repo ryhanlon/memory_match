@@ -103,18 +103,22 @@ const timerCount = () => {
 /*-------------------------------------------------------------
   		Counts the points earned per match
   -----------------------------------------------------------*/
-
-const countPoints = () => {
+const addPoints = () => {
 	points += 10;
 	$('.point-count').html(points);
-	if (points === 80) {
-		// stopTimer();
-		console.log('points are 80');
-		// endGameAlertWinner();
-	}
 	return points;
 };
 
+const losePoints = () => {
+	points -= 1;
+	$('.point-count').html(points);
+	return points;
+};
+
+
+/*-------------------------------------------------------------
+  		Count each match, ends game at 8 matches
+  -----------------------------------------------------------*/
 const countMatches = () => {
 	matches += 1;
 	if (matches === 8) {
@@ -125,8 +129,9 @@ const countMatches = () => {
 	}
 };
 
+
 /*-------------------------------------------------------------
-  		Counts the moves needed to match all cards
+  		Counts the moves done to match all cards
   -----------------------------------------------------------*/
 const moveCounter = () => {
 	countMoves += 1;
@@ -137,8 +142,9 @@ const moveCounter = () => {
 
 
 /*-------------------------------------------------------------
- 		After four missed matches, delete a star
+ 		        Deleting and replacing stars
   -----------------------------------------------------------*/
+// After three missed matches, delete a star
 const starCounter = () => {
 
 	countStars += 1;
@@ -181,7 +187,7 @@ const compareCards = () => {
 		// console.log(openCards.dataset.match);
 
 		// Add 10 points for each correct match
-		countPoints();
+		addPoints();
 
 		// Count each match, at eight matches end game
 		countMatches();
@@ -219,6 +225,8 @@ const compareCards = () => {
 			openCards.forEach(function (card) {
 				card.classList.remove('open', 'show');
 			});
+			// Lose point for miss
+			losePoints();
 			// Clears out the array for the next turn
 			openCards.splice(0, openCards.length);
 		}, 1000);
