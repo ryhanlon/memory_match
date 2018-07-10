@@ -51,6 +51,7 @@
         grid-template-areas: "title"
                              "stars"
                              "timer"
+                             "moves"
                              "counter"
                              "button";
         /*font-size: 1.5rem;*/
@@ -70,17 +71,12 @@
         font-size: 1.5rem;
     }
 
-    .stars-container {
+    .stars-container,
+    .timer,
+    .counter,
+    .count-moves {
         text-align: center;
 
-    }
-
-    .timer {
-        text-align: center;
-    }
-
-    .counter {
-        text-align: center;
     }
 
     .button {
