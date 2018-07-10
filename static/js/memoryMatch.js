@@ -155,6 +155,8 @@ const starCounter = () => {
 };
 
 const returnStars = () => {
+	$('.stars').append(`<ul class="stars-container">`);
+
 	for (let i = 0; i <= 4; i++) {
 		const stars = $(`<li class="star-holder"><i class="fa fa-star"></i></li>`);
 		const starsContainer = $('.stars-container');
@@ -162,6 +164,11 @@ const returnStars = () => {
 	}
 };
 
+const clearRemainingStars = ()  => {
+	if (remainingStars > 0) {
+		 $('.stars-container').detach();
+	}
+};
 
 /*-------------------------------------------------------------
  					Card logic (game logic)
@@ -186,13 +193,22 @@ const compareCards = () => {
 		openCards.splice(0, openCards.length);
 
 		// Adds classes, turns over cards
+		// openCards[0].classList.add('match');
+		// openCards[0].classList.add('open');
+		// openCards[0].classList.add('show');
+		//
+		// openCards[1].classList.add('match');
+		// openCards[1].classList.add('open');
+		// openCards[1].classList.add('show');
+
+	//	from tutor
 		openCards[0].classList.add('match');
-		openCards[0].classList.add('open');
-		openCards[0].classList.add('show');
+		openCards[0].classList.remove('open');
+		openCards[0].classList.remove('show');
 
 		openCards[1].classList.add('match');
-		openCards[1].classList.add('open');
-		openCards[1].classList.add('show');
+		openCards[1].classList.remove('open');
+		openCards[1].classList.remove('show');
 
 	} else {
 		starCounter();
@@ -296,7 +312,7 @@ $('.reset-button').on('click', () => {
 	// $('game-board').attr("disabled", true);
 
 	removeListener();
-
+    clearRemainingStars();
 	returnStars();
 	removeGameAlertLoser();
 	$('.game-board').empty();
