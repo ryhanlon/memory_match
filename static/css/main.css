@@ -125,16 +125,24 @@ video {
 
 }
 
-/*.reset {*/
-    /*grid-area: reset;*/
-    /*justify-self: end;*/
-/*}*/
+
+/*-------------------------------
+           Choose Game
+---------------------------------*/
+.game-choice {
+    position: absolute;
+    top: 30vh;
+}
 
 .button-container {
     grid-area: button;
     justify-self: center;
+
+    position: relative;
+    top: 5vh;
+    z-index: 30;
     color: #2e3d49;
-    /*padding: 5px;*/
+    padding: 1rem;
     text-align: center;
     font-size: 1rem;
     cursor: pointer;
@@ -154,6 +162,7 @@ video {
 .button:hover {
     background-color: #5b446e;
 }
+
 
 /*-------------------------------
            Game-board
