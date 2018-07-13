@@ -162,6 +162,11 @@ video {
     /*background-color: red;*/
 }
 
+.hide-container {
+    display: none;
+}
+
+
 .button {
     background-color: #aa7ecd;
     width: 65vw;

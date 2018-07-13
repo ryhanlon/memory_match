@@ -10,6 +10,7 @@ const picturePicture = [['<i class="fa-diamond"></i>', 'match-one'], ['<i class=
 
 // Global variables
 const allCards = document.querySelector('.game-board');
+const menuButtonContainer = document.querySelector('.game-choice');
 let openCards = [];
 let timeCounter = 0;
 let countStars = 0;
@@ -267,14 +268,14 @@ const removeListener = () => {
 /*-------------------------------------------------------------
  		Builds the game board
   -----------------------------------------------------------*/
-const buildGameBoard = () => {
+const buildGameBoard = (gameChoice) => {
 	const gameBoard = $('.game-board');
 
 	gameBoard.empty();
 
-	for (let animal of animals) {
-		// console.log(animal);
-		let buildBoxes = `<li class="card box" data-match=${animal[1]}>${animal[0]}</li>`;
+	for (let item of gameChoice) {
+		// console.log(game);
+		let buildBoxes = `<li class="card box" data-match=${item[1]}>${item[0]}</li>`;
 		gameBoard.append(buildBoxes);
 
 	}
@@ -283,18 +284,18 @@ const buildGameBoard = () => {
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-const shuffle = (animals) => {
-    let currentIndex = animals.length, temporaryValue, randomIndex;
+const shuffle = (gameChoice) => {
+    let currentIndex = gameChoice.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        temporaryValue = animals[currentIndex];
-        animals[currentIndex] = animals[randomIndex];
-        animals[randomIndex] = temporaryValue;
+        temporaryValue = gameChoice[currentIndex];
+        gameChoice[currentIndex] = gameChoice[randomIndex];
+        gameChoice[randomIndex] = temporaryValue;
     }
 
-    return buildGameBoard(animals);
+    return buildGameBoard(gameChoice);
 };
 
 
@@ -326,12 +327,25 @@ $('.reset-button').on('click', () => {
 	returnStars();
 	removeGameAlertLoser();
 	$('.game-board').empty();
+	menuButtonContainer.classList.remove('hide-container');
 });
 
 
-// Click button to start game
-$('.start-button').on('click', () => {
+// Choose which type of game to play and start game
+$('.word-word-button').on('click', () => {
 	shuffle(animals);
 	startTimer();
+	menuButtonContainer.classList.add('hide-container');
 });
 
+$('.pict-word-button').on('click', () => {
+	shuffle(wordPicture);
+	startTimer();
+	menuButtonContainer.classList.add('hide-container');
+});
+
+$('.pict-pict-button').on('click', () => {
+	shuffle(picturePicture);
+	startTimer();
+	menuButtonContainer.classList.add('hide-container');
+});
