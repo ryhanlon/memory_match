@@ -68,16 +68,26 @@ video {
 --------------------------------*/
 .game-nav {
     grid-area: game-nav;
-    padding: 1rem;
+    padding: 0 .5 0 0 ;
     justify-self: stretch;
     /*margin: 1rem;*/
     display: grid;
     grid-template: repeat(3, .8fr) / repeat(4, 1fr);
     grid-template-areas: "title title title title"
-                         "moves stars stars counter"
-                         "timer timer button button";
+                         "moves moves counter counter"
+                         "timer timer stars stars";
     font-size: 1.2rem;
-    padding: 0 .5 0 0 ;
+}
+
+.nav-content-1 {
+    text-align: left;
+    padding-left: 1rem;
+    margin: 0;
+}
+.nav-content-2 {
+    text-align: right;
+    padding-right: 1rem;
+    margin: 0;
 }
 
 .count-moves {
@@ -90,25 +100,28 @@ video {
     justify-self: stretch;
     font-size: 1.8rem;
     text-align: center;
-    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     margin: 0;
 }
 
 .game-nav .stars {
     grid-area: stars;
     justify-self: stretch;
-    /*margin: 0 5px 0 0;*/
+    margin: 0;
     /*padding: 0;*/
     font-size: 1rem;
 }
 
 .stars-container {
     text-align: left;
+    padding-left: 4rem;
+    margin: 0;
 }
 
 .game-nav .stars li {
     display: inline-block;
-    margin: 0;
+    margin: .4rem 0;
 }
 
 .timer {
@@ -131,32 +144,33 @@ video {
 ---------------------------------*/
 .game-choice {
     position: absolute;
-    top: 30vh;
+    top: 12rem;
+    width: 82%;
+    height: 59%;
+    /*background-color: yellow;*/
 }
 
 .button-container {
     grid-area: button;
-    justify-self: center;
-
     position: relative;
-    top: 5vh;
-    z-index: 30;
+    top: 1.5rem;
     color: #2e3d49;
     padding: 1rem;
     text-align: center;
-    font-size: 1rem;
     cursor: pointer;
     margin: .5rem 1rem;
+    /*background-color: red;*/
 }
 
 .button {
     background-color: #aa7ecd;
-    width: 34vw;
-    height: 7vh;
+    width: 65vw;
+    height: 12vh;
     border-radius: 10px;
     border-style: groove;
     /*padding: .5rem;*/
-    /*font-size: 1.2rem;*/
+    font-size: 1.5rem;
+    box-shadow: 1px 1px 3px 3px darkgrey;
 }
 
 .button:hover {
@@ -179,7 +193,7 @@ video {
     width: 95vw;
     min-height: 70vh;
     background: linear-gradient(160deg, #4824cf 0%, #aa7ecd 100%);
-    padding: .5rem;
+    padding: 1rem .5rem;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     /*display: flex;*/
