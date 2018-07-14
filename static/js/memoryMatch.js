@@ -20,6 +20,7 @@ let points = 0;
 let matches = 0;
 let countMoves = 0;
 let leaderBoardStorage = window.localStorage;
+let bestTime = 15;
 
 
 /*-------------------------------------------------------------
@@ -31,7 +32,8 @@ const endGameAlertWinner = () => {
 	const winMessage = `Winner!  Winner!
 					 In ${countMoves} moves you earned ${points} points.
 					 Your time was ${timeCounter} seconds
-					 and you still have ${remainingStars} stars`;
+					 and you still have ${remainingStars} stars
+					 Best Time is ${bestTime}`;
 
 	const messageContainer = document.querySelector('.message-container');
 	messageContainer.classList.remove('remove-message');
@@ -48,7 +50,8 @@ const endGameAlertLoser = () => {
 	const loseMessage = `Game over!  Game over! 
 						 Oh no! You have  ${remainingStars}  stars!
 					     In ${countMoves} moves you earned ${points} points.
-					     Your time was ${timeCounter} seconds`;
+					     Your time was ${timeCounter} seconds.
+					     Best Time is ${bestTime}`;
 
 	const messageContainer = document.querySelector('.message-container');
 	messageContainer.classList.remove('remove-message');
@@ -75,13 +78,23 @@ const removeGameAlertLoser = () => {
 /*-------------------------------------------------------------
        Use local storage for Leader board
   -----------------------------------------------------------*/
-const makeLeaderBoard = () => {
-	// Accesses current domain's localStorage object and adds a data item to it
-     leaderBoardStorage.setItem('topPlayer', 'Tom');
-     // Reading localStorage
-	let stats = localStorage.getItem('topPlayer');
+const updateLeaderBoard = (timeCounter) => {
+	let oldTime = localStorage.getItem("topPlayer");
 
+	// Accesses current domain's localStorage object and add best player time to it
+	if (oldTime === null) {
+		leaderBoardStorage.setItem("topPlay", JSON.stringify(timeCounter));
+		bestTime = timeCounter;
+		console.log(`first leaderBoard value ${timeCounter}`);
 
+	  } else if (oldTime > timeCounter) {
+		leaderBoardStorage.setItem("topPlayer", JSON.stringify(timeCounter));
+		bestTime = timeCounter;
+		console.log(`new time for leaderBoard ${timeCounter}`);
+	} else {
+		let remainingBestTime = JSON.parse(localStorage.getItem("topPlayer"));
+		console.log(`localStorage stays with ${remainingBestTime}`);
+	}
 };
 
 
@@ -126,6 +139,7 @@ const countMatches = () => {
 	matches += 1;
 	if (matches === 8) {
 		stopTimer();
+		updateLeaderBoard(timeCounter);
 		console.log('all cards are matched');
 		endGameAlertWinner();
 		// add name and points the leader board
@@ -152,12 +166,13 @@ const starCounter = () => {
 
 	countStars += 1;
 
-	if (countStars === 3) {
+	if (countStars === 1) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
 			if (remainingStars === 0) {
 		    	stopTimer();
+		    	updateLeaderBoard(timeCounter);
 		    	endGameAlertLoser();
 			}
 	}
@@ -349,3 +364,4 @@ $('.pict-pict-button').on('click', () => {
 	startTimer();
 	menuButtonContainer.classList.add('hide-container');
 });
+
