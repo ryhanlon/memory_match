@@ -18,8 +18,6 @@
         padding-right: 2rem;
     }
 
-
-
     .game-choice {
         top: 15rem;
     }
@@ -34,6 +32,10 @@
     .game-board {
         grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 
+    }
+
+    .game-board .card.show {
+        font-size: 2.5rem;
     }
 }
 
@@ -93,6 +95,10 @@
         width: 66vw;
         min-height: 90vh;
         margin: 2rem 0;
+    }
+
+    .game-board .card.show {
+        font-size: 3.5rem;
     }
 
     .game-nav .stars {
