@@ -1,5 +1,4 @@
-/*----- iPad (768 x 1024) -----*/
-
+/*----- Range of iPad (768 x 1024) -----*/
 @media screen and (min-width: 767px) {
     .game-nav {
         font-size: 2rem;
@@ -13,10 +12,6 @@
         font-size: 1.5rem;
     }
 
-    .button {
-        font-size: 2.5rem;
-    }
-
     .game-board {
         grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 
@@ -28,11 +23,8 @@
 }
 
 
-/*----- media-query for iPad Pro (1024 x 1366) -----*/
+/*----- Range of iPad Pro (1024 x 1366) -----*/
 @media screen and (min-width: 1023px) {
-    .button {
-        font-size: 3rem;
-    }
     .game-nav .stars {
         font-size: 2rem;
         padding-left: 0;
@@ -40,7 +32,7 @@
 }
 
 
-/*----- media-query for desktop  -----*/
+/*----- Range for desktop  -----*/
 @media screen and (min-width: 1050px) {
     .body-container {
         grid-template: 15% 70% 15% / 26% 74%;
@@ -56,8 +48,8 @@
                              "timer"
                              "moves"
                              "counter";
-        /*font-size: 1.5rem;*/
     }
+
     .title {
         text-align: center;
         font-size: 4vw;
@@ -94,8 +86,7 @@
     }
 
     .button {
-        width: 40vw;
-        height: 12vh;
-        font-size: 3rem;
+        width: 35vw;
+        font-size: 4vh;
     }
 }

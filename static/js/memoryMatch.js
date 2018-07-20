@@ -1,12 +1,12 @@
 "use strict";
 
 
-// const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
 const animals = [['tiger', 'match-one'], ['tiger', 'match-one'], ['elephant', 'match-two'], ['elephant', 'match-two'], ['peacock', 'match-three'], ['peacock', 'match-three'], ['turtle', 'match-four'], ['turtle', 'match-four'],['swan', 'match-five'], ['swan', 'match-five'], ['wolf', 'match-six'], ['wolf', 'match-six'], ['dolphin', 'match-seven'], ['dolphin', 'match-seven'], ['alien', 'match-eight'], ['alien', 'match-eight'] ];
 
 const wordPicture = [['diamond', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['plane', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['anchor', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['bolt', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'],['cube', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['leaf', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['bicycle', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['bomb', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight'] ];
 
 const picturePicture = [['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-bolt"></i>', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'],['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bomb"></i>', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight'] ];
+
 
 // Global variables
 const allCards = document.querySelector('.game-board');
@@ -61,6 +61,7 @@ const endGameAlertLoser = () => {
 	messageHeading.innerText = loseMessage;
 };
 
+
 const removeGameAlertLoser = () => {
 	const message = document.querySelector('.message-container');
 	message.classList.remove('show-message');
@@ -71,9 +72,8 @@ const removeGameAlertLoser = () => {
 	// document.querySelector('#game-freeze div').disabled=true;
 
     console.log('Removed message.');
-
-
 };
+
 
 /*-------------------------------------------------------------
        Use local storage for Leader board
@@ -105,9 +105,11 @@ const stopTimer = () => {
 	clearInterval(timer);
 };
 
+
 const startTimer = () => {
 	timer = setInterval(timerCount, 1000);
 };
+
 
 const timerCount = () => {
 	timeCounter += 1;
@@ -124,6 +126,7 @@ const addPoints = () => {
 	$('.point-count').html(points);
 	return points;
 };
+
 
 const losePoints = () => {
 	points -= 1;
@@ -142,7 +145,6 @@ const countMatches = () => {
 		updateLeaderBoard(timeCounter);
 		console.log('all cards are matched');
 		endGameAlertWinner();
-		// add name and points the leader board
 	}
 };
 
@@ -178,6 +180,7 @@ const starCounter = () => {
 	}
 };
 
+
 const returnStars = () => {
 	$('.stars').append(`<ul class="stars-container">`);
 
@@ -188,16 +191,17 @@ const returnStars = () => {
 	}
 };
 
+
 const clearRemainingStars = ()  => {
 	if (remainingStars > 0) {
 		 $('.stars-container').detach();
 	}
 };
 
+
 /*-------------------------------------------------------------
  					Card logic (game logic)
   -----------------------------------------------------------*/
-
 // Checks if cards match, if not turn back over
 const compareCards = () => {
 	// Compares the cards using data-match attribute

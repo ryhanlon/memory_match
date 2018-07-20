@@ -6,7 +6,6 @@ font-family: 'Indie Flower', cursive;
 */
 
 
-
 html {
     box-sizing: border-box;
 }
@@ -37,20 +36,6 @@ object,
 video {
     max-width: 100%;
 }
-
-/*a {*/
-    /*grid-area: button;*/
-    /*text-decoration: none;*/
-    /*justify-self: center;*/
-    /*cursor: pointer;*/
-/*}*/
-
-/*form {*/
-    /*grid-area: button;*/
-    /*text-decoration: none;*/
-    /*justify-self: center;*/
-    /*cursor: pointer;*/
-/*}*/
 
 .body-container {
     display: grid;
@@ -84,6 +69,7 @@ video {
     padding-left: 1rem;
     margin: 0;
 }
+
 .nav-content-2 {
     text-align: right;
     padding-right: 1rem;
@@ -107,9 +93,7 @@ video {
 
 .game-nav .stars {
     grid-area: stars;
-    /*justify-self: stretch;*/
-    /*margin: 0;*/
-    /*padding-left: 5vw;*/
+    justify-self: stretch;
     font-size: 1rem;
     letter-spacing: .2vw;
 }
@@ -136,7 +120,6 @@ video {
     justify-self: stretch;
     /*margin: 0 5px 0 0;*/
     text-align: right;
-
 }
 
 
@@ -167,15 +150,13 @@ video {
     display: none;
 }
 
-
 .button {
     background-color: #aa7ecd;
     width: 65vw;
     height: 12vh;
     border-radius: 10px;
     border-style: groove;
-    /*padding: .5rem;*/
-    font-size: 1.5rem;
+    font-size: 3.5vh;
     box-shadow: 1px 1px 3px 3px darkgrey;
 }
 
@@ -187,10 +168,6 @@ video {
 /*-------------------------------
            Game-board
 ---------------------------------*/
-/*.main-container {*/
-    /*padding: 0 1rem;*/
-/*}*/
-
 .game-board {
     grid-area: game-board;
     justify-self: center;
@@ -202,10 +179,6 @@ video {
     padding: 1rem .5rem;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: space-between;*/
-    /*align-items: center;*/
     margin: 0;
 }
 
@@ -218,13 +191,10 @@ video {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-
 .box {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*height: 15vh;*/
-    /*width: 22vw;*/
     margin: .1rem;
     padding: .1rem;
     cursor: pointer;
@@ -241,7 +211,7 @@ video {
     background-color: #90bbe8;
 }
 
-/* cards */
+/*--- cards ---*/
 .game-board .card.open {
     transform: rotateY(0);
     background: #02b3e4;
@@ -257,8 +227,6 @@ video {
     animation: shake2 0.5s;
 }
 
-
-
 .game-board .card.match {
     cursor: default;
     background: #a46e2e;
@@ -267,10 +235,10 @@ video {
     animation-duration: 1s;
 }
 
+
 /*-------------------------------
            Animation
 --------------------------------*/
-
 @keyframes matchCard {
     from {background-color: #02b3e4;}
     to {background-color: rgba(164, 110, 46, 0.53);}
@@ -283,21 +251,22 @@ video {
     /*}*/
 /*}*/
 
-/* from w3 School css_shake*/
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
+/*--- original sample from w3 School css_shake ---*/
+/*@keyframes shake {*/
+    /*0% { transform: translate(1px, 1px) rotate(0deg); }*/
+    /*10% { transform: translate(-1px, -2px) rotate(-1deg); }*/
+    /*20% { transform: translate(-3px, 0px) rotate(1deg); }*/
+    /*30% { transform: translate(3px, 2px) rotate(0deg); }*/
+    /*40% { transform: translate(1px, -1px) rotate(1deg); }*/
+    /*50% { transform: translate(-1px, 2px) rotate(-1deg); }*/
+    /*60% { transform: translate(-3px, 1px) rotate(0deg); }*/
+    /*70% { transform: translate(3px, 1px) rotate(-1deg); }*/
+    /*80% { transform: translate(-1px, -1px) rotate(1deg); }*/
+    /*90% { transform: translate(1px, 2px) rotate(0deg); }*/
+    /*100% { transform: translate(1px, -2px) rotate(-1deg); }*/
+/*}*/
 
+/*--- modified css_shake, used in game ---*/
 @keyframes shake2 {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     20% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -305,7 +274,6 @@ video {
     60% { transform: translate(3px, 2px) rotate(0deg); }
     80% { transform: translate(1px, -1px) rotate(1deg); }
     100% { transform: translate(-1px, 2px) rotate(-1deg); }
-
 }
 
 
@@ -314,7 +282,6 @@ video {
 --------------------------------*/
 .message-container {
     position: absolute;
-    /*z-index: 1;*/
     top: 0;
     left: -124vw;
     width: 100vw;
@@ -322,7 +289,6 @@ video {
     background-color: rgba(50, 37, 60, 0.9);
     color: #ffffff;
     opacity: 0;
-    /*display: none;*/
     transition: all 1s;
 }
 
@@ -343,6 +309,7 @@ video {
     left: -124vw;
     opacity: 0;
 }
+
 
 /*-------------------------------
            Footer

@@ -6,17 +6,13 @@
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Memory Match</title>
+	<title>Lost Your Marbles</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">-->
-	    <!--<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="static/css/normalize.css">
@@ -24,78 +20,70 @@
 	<link rel="stylesheet" type="text/css" href="static/css/responsive.css">
 
 	<!-- Favicon -->
-	<!--<link rel="icon" type="image/jpg" href="./static/img/favicon.ico">-->
-
-
+	<link rel="icon" type="image/jpg" href="./static/img/favicon.ico">
 </head>
-	<body>
-		<div class="body-container">
-			<header class="game-nav">
-				<!-- move counter-->
-				<div class="count-moves"><p class="nav-content-1">Moves: <span class="move-counter">0</span></p></div>
 
-				<!-- title of app -->
-				<h1 class="title">Lost Your Marbles?</h1>
+<body>
+	<div class="body-container">
+		<header class="game-nav">
+			<!-- move counter-->
+			<div class="count-moves"><p class="nav-content-1">Moves: <span class="move-counter">0</span></p></div>
 
-				<!-- stars, timer, points, play button leader board -->
-				<div class="stars">
-					<ul class="stars-container">
-						<li class="star-holder"><i class="fa fa-star"></i></li>
-						<li class="star-holder"><i class="fa fa-star"></i></li>
-						<li class="star-holder"><i class="fa fa-star"></i></li>
-						<li class="star-holder"><i class="fa fa-star"></i></li>
-						<li class="star-holder"><i class="fa fa-star"></i></li>
-					</ul>
-				</div>
-				<div class="timer"><p class="nav-content-1">Timer: <span class="stop-watch">0:00</span></p></div>
-				<div class="counter"><p class="nav-content-2">Points: <span class="point-count">0</span></p></div>
+			<!-- title of app -->
+			<h1 class="title">Lost Your Marbles?</h1>
 
-				<!--<div class="reset"><i class="fa fa-redo"></i></div>-->
+			<!-- stars, timer, points, play button leader board -->
+			<div class="stars">
+				<ul class="stars-container">
+					<li class="star-holder"><i class="fa fa-star"></i></li>
+					<li class="star-holder"><i class="fa fa-star"></i></li>
+					<li class="star-holder"><i class="fa fa-star"></i></li>
+					<li class="star-holder"><i class="fa fa-star"></i></li>
+					<li class="star-holder"><i class="fa fa-star"></i></li>
+				</ul>
+			</div>
+			<div class="timer"><p class="nav-content-1">Timer: <span class="stop-watch">0:00</span></p></div>
+			<div class="counter"><p class="nav-content-2">Points: <span class="point-count">0</span></p></div>
+		</header>
 
-				<!--<div class="button-container">-->
-					<!--<button class="start-button button" type="button">Start Game</button>-->
-				<!--</div>-->
-			</header>
+		<main class="main-container">
+			<!-- 16 square game board -->
+			<section class="game-board-container" id="game-freeze">
+				<ul class="game-board">
 
-			<main class="main-container">
-				<!-- 16 square game board -->
-				<section class="game-board-container" id="game-freeze">
-					<ul class="game-board">
-
-					</ul>
-				</section>
-
-				<section class="game-choice">
-					<div class="button-container">
-						<button class="word-word-button button" type="button">Word to Word</button>
-					</div>
-					<div class="button-container">
-						<button class="pict-word-button button" type="button">Picture to Word</button>
-					</div>
-					<div class="button-container">
-						<button class="pict-pict-button button" type="button">Picture to Picture</button>
-					</div>
-				</section>
-			</main>
-
-			<section class="message-container">
-				<h3 class="endgame-message"></h3>
-				<div class="button-container">
-					<button class="button reset-button" type="button">Try Again</button>
-				</div>
+				</ul>
 			</section>
 
-			<footer class="footer-info">
-				<p class="copy-right">2018©BunnyHacker</p>
-			</footer>
+			<section class="game-choice">
+				<div class="button-container">
+					<button class="word-word-button button" type="button">Word to Word</button>
+				</div>
+				<div class="button-container">
+					<button class="pict-word-button button" type="button">Picture to Word</button>
+				</div>
+				<div class="button-container">
+					<button class="pict-pict-button button" type="button">Picture to Picture</button>
+				</div>
+			</section>
+		</main>
 
-
-				<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-						integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-						crossorigin="anonymous"></script>
-				<script src="./static/js/memoryMatch.js"></script>
+		<section class="message-container">
+			<h3 class="endgame-message"></h3>
+			<div class="button-container">
+				<button class="button reset-button" type="button">Try Again</button>
 			</div>
-		</body>
+		</section>
 
+		<footer class="footer-info">
+			<p class="copy-right">2018©BunnyHacker</p>
+		</footer>
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+				crossorigin="anonymous"></script>
+		<script src="./static/js/memoryMatch.js"></script>
+	</div>
+</body>
 
 </html>
