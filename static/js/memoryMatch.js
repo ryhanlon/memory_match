@@ -2,7 +2,7 @@
 
 
 // const animals = ["tiger", "tiger", "elephant", "elephant", "peacock", "peacock", "turtle", "turtle"];
-const animals = [["tiger", "match-one"], ["tiger", "match-one"], ["elephant", "match-two"], ["elephant", "match-two"], ["peacock", "match-three"], ["peacock", "match-three"], ["turtle", "match-four"], ["turtle", "match-four"],["swan", "match-five"], ["swan", "match-five"], ["wolf", "match-six"], ["wolf", "match-six"], ["dolphin", "match-seven"], ["dolphin", "match-seven"], ["alien", "match-eight"], ["alien", "match-eight"] ];
+const animals = [['tiger', 'match-one'], ['tiger', 'match-one'], ['elephant', 'match-two'], ['elephant', 'match-two'], ['peacock', 'match-three'], ['peacock', 'match-three'], ['turtle', 'match-four'], ['turtle', 'match-four'],['swan', 'match-five'], ['swan', 'match-five'], ['wolf', 'match-six'], ['wolf', 'match-six'], ['dolphin', 'match-seven'], ['dolphin', 'match-seven'], ['alien', 'match-eight'], ['alien', 'match-eight'] ];
 
 const wordPicture = [['diamond', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['plane', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['anchor', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['bolt', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'],['cube', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['leaf', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['bicycle', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['bomb', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight'] ];
 
@@ -47,7 +47,7 @@ const endGameAlertWinner = () => {
 // Looser announcement
 const endGameAlertLoser = () => {
 	console.log('loser message is called');
-	const loseMessage = `Game over!  Game over! 
+	const loseMessage = `Game over!  Game over!
 						 Oh no! You have  ${remainingStars}  stars!
 					     In ${countMoves} moves you earned ${points} points.
 					     Your time was ${timeCounter} seconds.
@@ -112,7 +112,7 @@ const startTimer = () => {
 const timerCount = () => {
 	timeCounter += 1;
 	$('.stop-watch').html(`${timeCounter}`);
-	console.log(timeCounter);
+	// console.log(timeCounter);
 };
 
 
@@ -213,26 +213,19 @@ const compareCards = () => {
 		// Count how many times clicked pair until all matched
 		moveCounter();
 
+		// Adds classes, turns over cards
+		openCards[0].classList.remove('open');
+		openCards[0].classList.remove('show');
+		openCards[0].classList.add('match');
+
+
+		openCards[1].classList.remove('open');
+		openCards[1].classList.remove('show');
+		openCards[1].classList.add('match');
+
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
 
-		// Adds classes, turns over cards
-		// openCards[0].classList.add('match');
-		// openCards[0].classList.add('open');
-		// openCards[0].classList.add('show');
-		//
-		// openCards[1].classList.add('match');
-		// openCards[1].classList.add('open');
-		// openCards[1].classList.add('show');
-
-	//	from tutor
-		openCards[0].classList.add('match');
-		openCards[0].classList.remove('open');
-		openCards[0].classList.remove('show');
-
-		openCards[1].classList.add('match');
-		openCards[1].classList.remove('open');
-		openCards[1].classList.remove('show');
 
 	} else {
 		starCounter();

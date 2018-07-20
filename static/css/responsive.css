@@ -1,28 +1,16 @@
 /*----- iPad (768 x 1024) -----*/
 
 @media screen and (min-width: 767px) {
-    .body-container {
-        /*padding: 1rem;*/
-    }
-
     .game-nav {
         font-size: 2rem;
     }
 
-    .title {
-        font-size: 3.3rem;
-    }
-
     .stars-container {
-        text-align: right;
-        padding-right: 2rem;
+        padding-right: 1rem;
     }
 
-    .game-choice {
-        top: 15rem;
-    }
-    .button-container {
-        top: 2.5rem;
+    .game-nav .stars {
+        font-size: 1.5rem;
     }
 
     .button {
@@ -40,35 +28,19 @@
 }
 
 
-@media screen and (min-width: 800px) {
-
-
-}
-
-
 /*----- media-query for iPad Pro (1024 x 1366) -----*/
-
 @media screen and (min-width: 1023px) {
-    .title {
-        font-size: 4.3rem;
-    }
     .button {
         font-size: 3rem;
     }
     .game-nav .stars {
         font-size: 2rem;
-    }
-
-    .game-choice {
-        top: 22rem;
-    }
-    .button-container {
-        top: 3.5rem;
+        padding-left: 0;
     }
 }
 
-/*----- media-query for desktop  -----*/
 
+/*----- media-query for desktop  -----*/
 @media screen and (min-width: 1050px) {
     .body-container {
         grid-template: 15% 70% 15% / 26% 74%;
@@ -88,7 +60,7 @@
     }
     .title {
         text-align: center;
-        font-size: 3.3rem;
+        font-size: 4vw;
     }
 
     .game-board {
@@ -102,7 +74,8 @@
     }
 
     .game-nav .stars {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        padding-top: 4vh;
     }
 
     .stars-container,
@@ -120,15 +93,9 @@
 
     }
 
-    .button-container {
-        top: 3rem;
-        /*right: 12rem;*/
-    }
-
     .button {
         width: 40vw;
         height: 12vh;
         font-size: 3rem;
     }
-
 }

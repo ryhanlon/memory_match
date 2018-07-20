@@ -68,7 +68,7 @@ video {
 --------------------------------*/
 .game-nav {
     grid-area: game-nav;
-    padding: 0 .5 0 0 ;
+    padding: 0 .5rem 0 0;
     justify-self: stretch;
     /*margin: 1rem;*/
     display: grid;
@@ -76,7 +76,7 @@ video {
     grid-template-areas: "title title title title"
                          "moves moves counter counter"
                          "timer timer stars stars";
-    font-size: 1.2rem;
+    font-size: 6vw;
 }
 
 .nav-content-1 {
@@ -98,7 +98,7 @@ video {
 .title {
     grid-area: title;
     justify-self: stretch;
-    font-size: 1.8rem;
+    font-size: 8vw;
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -107,15 +107,16 @@ video {
 
 .game-nav .stars {
     grid-area: stars;
-    justify-self: stretch;
-    margin: 0;
-    /*padding: 0;*/
+    /*justify-self: stretch;*/
+    /*margin: 0;*/
+    /*padding-left: 5vw;*/
     font-size: 1rem;
+    letter-spacing: .2vw;
 }
 
 .stars-container {
-    text-align: left;
-    padding-left: 4rem;
+    text-align: right;
+    padding-right: 1rem;
     margin: 0;
 }
 
@@ -144,7 +145,7 @@ video {
 ---------------------------------*/
 .game-choice {
     position: absolute;
-    top: 12rem;
+    top: 28vh;
     width: 82%;
     height: 59%;
     /*background-color: yellow;*/
@@ -153,7 +154,7 @@ video {
 .button-container {
     grid-area: button;
     position: relative;
-    top: 1.5rem;
+    top: 2vh;
     color: #2e3d49;
     padding: 1rem;
     text-align: center;
@@ -194,7 +195,7 @@ video {
     grid-area: game-board;
     justify-self: center;
     display: grid;
-    grid-template: repeat(5, 1fr) / repeat(3, 1fr);
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
     width: 95vw;
     min-height: 70vh;
     background: linear-gradient(160deg, #4824cf 0%, #aa7ecd 100%);
@@ -248,14 +249,65 @@ video {
 }
 
 .game-board .card.show {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    background-color: #02ccba;
 }
+
+.game-board .card.show:hover {
+    animation: shake2 0.5s;
+}
+
+
 
 .game-board .card.match {
     cursor: default;
-    background: #02ccba;
-    font-size: 1.4rem;
+    background: #a46e2e;
+    font-size: 1.2rem;
+    animation-name: matchCard;
+    animation-duration: 1s;
 }
+
+/*-------------------------------
+           Animation
+--------------------------------*/
+
+@keyframes matchCard {
+    from {background-color: #02b3e4;}
+    to {background-color: rgba(164, 110, 46, 0.53);}
+}
+
+/*@keyframes cardGrow {*/
+    /*100% {*/
+        /*width: 10px;*/
+        /*height: 10px;*/
+    /*}*/
+/*}*/
+
+/* from w3 School css_shake*/
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes shake2 {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    20% { transform: translate(-1px, -2px) rotate(-1deg); }
+    40% { transform: translate(-3px, 0px) rotate(1deg); }
+    60% { transform: translate(3px, 2px) rotate(0deg); }
+    80% { transform: translate(1px, -1px) rotate(1deg); }
+    100% { transform: translate(-1px, 2px) rotate(-1deg); }
+
+}
+
 
 /*-------------------------------
       Winner/Loser Message
@@ -265,9 +317,9 @@ video {
     /*z-index: 1;*/
     top: 0;
     left: -124vw;
-    width: 110vw;
+    width: 100vw;
     height: 100vh;
-    background-color: rgba(50, 37, 60, 0.75);
+    background-color: rgba(50, 37, 60, 0.9);
     color: #ffffff;
     opacity: 0;
     /*display: none;*/
@@ -277,7 +329,9 @@ video {
 .endgame-message {
     line-height: 2.2;
     text-align: center;
-    padding: 15rem 1rem 0;
+    padding-top: 15vh;
+    font-size: 3.2vh;
+    letter-spacing: .1vw;
 }
 
 .show-message {
@@ -291,12 +345,13 @@ video {
 }
 
 /*-------------------------------
-           Aside
---------------------------------*/
-
-
-/*-------------------------------
            Footer
 --------------------------------*/
 .footer-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    padding: 1vh;
+    width: 100%;
 }
