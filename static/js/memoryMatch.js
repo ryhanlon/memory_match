@@ -23,6 +23,22 @@ let leaderBoardStorage = window.localStorage;
 let bestTime = 15;
 
 
+// audio object
+const  audioBank = {
+		click_sfx: new Audio("static/audio/card_click.mp3"),
+		win_sfx: new Audio("static/audio/game_win.mp3"),
+		lose_sfx: new Audio("static/audio/game_lose.mp3")
+	};
+
+
+const clickSound = () => audioBank.click_sfx.play();
+const winSound = () => audioBank.win_sfx.play();
+const loseSound = () => audioBank.lose_sfx.play();
+
+
+
+
+
 /*-------------------------------------------------------------
       			 Winner and Loser announcements
   -----------------------------------------------------------*/
@@ -41,11 +57,12 @@ const endGameAlertWinner = () => {
 
 	const messageHeading = document.querySelector('.endgame-message');
 	messageHeading.innerText = winMessage;
+	winSound();
 };
 
 
 // Looser announcement
-const endGameAlertLoser = () => {
+const endGameAlertLoser = (lose_sfx) => {
 	console.log('loser message is called');
 	const loseMessage = `Game over!  Game over!
 						 Oh no! You have  ${remainingStars}  stars!
@@ -59,6 +76,7 @@ const endGameAlertLoser = () => {
 
 	const messageHeading = document.querySelector('.endgame-message');
 	messageHeading.innerText = loseMessage;
+	loseSound();
 };
 
 
@@ -168,7 +186,7 @@ const starCounter = () => {
 
 	countStars += 1;
 
-	if (countStars === 1) {
+	if (countStars === 3) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
@@ -255,6 +273,7 @@ const turnCardOver = (event) => {
 	// if ($('.show').length > 1) {
 	// 	return true;
 	// }
+	clickSound();
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
 
@@ -339,26 +358,29 @@ $('.reset-button').on('click', () => {
 	returnStars();
 	removeGameAlertLoser();
 	$('.game-board').empty();
+	clickSound();
 	menuButtonContainer.classList.remove('hide-container');
 });
 
 
 // Choose which type of game to play and start game
 $('.word-word-button').on('click', () => {
+	clickSound();
 	shuffle(animals);
 	startTimer();
 	menuButtonContainer.classList.add('hide-container');
 });
 
 $('.pict-word-button').on('click', () => {
+	clickSound();
 	shuffle(wordPicture);
 	startTimer();
 	menuButtonContainer.classList.add('hide-container');
 });
 
 $('.pict-pict-button').on('click', () => {
+	clickSound();
 	shuffle(picturePicture);
 	startTimer();
 	menuButtonContainer.classList.add('hide-container');
 });
-
