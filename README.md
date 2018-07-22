@@ -55,7 +55,7 @@ Click [here](#picture-of-responsive-design-website) to see pictures of the websi
     - can click the same card for a match
     - to refine the limiting to two cards I tried the following, but the doesn't work on cards
     ```
-                $('.game-board').prop("disabled", true);
+    $('.game-board').prop("disabled", true);
 
 	document.querySelector('.game-board').disabled=true;
 
