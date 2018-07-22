@@ -41,13 +41,14 @@ Click [here](#picture-of-responsive-design-website) to see pictures of the websi
 ![playing game](./docs/img/tablet2_350px.png)
 
 ##### Desk Top
-![choose game](./docs/img/deskTop_400px.png)
+![choose game](./docs/img/desk-top_400px.png)
 
-![playing game](./docs/img/deskTop2_400px.png)
+![playing game](./docs/img/desk-top2_400px.png)
 
 
-##### Future Features
+### Future Features
 - Add name for leader board
 - Rework color scheme and add art to UI
 - Add more sfx to interactions with game
-- refactor into React
+- Refactor into React
+- Add more game vocabulary
