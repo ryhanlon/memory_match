@@ -172,7 +172,7 @@ video {
     grid-area: game-board;
     justify-self: center;
     display: grid;
-    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
     width: 95vw;
     min-height: 70vh;
     background: linear-gradient(160deg, #4824cf 0%, #aa7ecd 100%);

@@ -1,11 +1,15 @@
-"use strict";
+'use strict'
 
+//installed so Quokka works with jQuery
+// import $ from 'jquery';
+// window.jQuery = $;
+// window.$ = $;
 
-const animals = [['tiger', 'match-one'], ['tiger', 'match-one'], ['elephant', 'match-two'], ['elephant', 'match-two'], ['peacock', 'match-three'], ['peacock', 'match-three'], ['turtle', 'match-four'], ['turtle', 'match-four'],['swan', 'match-five'], ['swan', 'match-five'], ['wolf', 'match-six'], ['wolf', 'match-six'], ['dolphin', 'match-seven'], ['dolphin', 'match-seven'], ['alien', 'match-eight'], ['alien', 'match-eight'] ];
+const animals = [['tiger', 'match-one'], ['tiger', 'match-one'], ['elephant', 'match-two'], ['elephant', 'match-two'], ['peacock', 'match-three'], ['peacock', 'match-three'], ['turtle', 'match-four'], ['turtle', 'match-four'], ['swan', 'match-five'], ['swan', 'match-five'], ['wolf', 'match-six'], ['wolf', 'match-six'], ['dolphin', 'match-seven'], ['dolphin', 'match-seven'], ['alien', 'match-eight'], ['alien', 'match-eight']];
 
-const wordPicture = [['diamond', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['plane', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['anchor', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['bolt', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'],['cube', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['leaf', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['bicycle', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['bomb', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight'] ];
+const wordPicture = [['diamond', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['plane', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['anchor', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['bolt', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'], ['cube', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['leaf', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['bicycle', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['bomb', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight']];
 
-const picturePicture = [['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-bolt"></i>', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'],['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bomb"></i>', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight'] ];
+const picturePicture = [['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-diamond"></i>', 'match-one'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-paper-plane-o"></i>', 'match-two'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-anchor"></i>', 'match-three'], ['<i class="fa fa-bolt"></i>', 'match-four'], ['<i class="fa fa-bolt"></i>', 'match-four'], ['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-cube"></i>', 'match-five'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-leaf"></i>', 'match-six'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bicycle"></i>', 'match-seven'], ['<i class="fa fa-bomb"></i>', 'match-eight'], ['<i class="fa fa-bomb"></i>', 'match-eight']];
 
 
 // Global variables
@@ -23,20 +27,18 @@ let leaderBoardStorage = window.localStorage;
 let bestTime = 15;
 
 
-// audio object
-const  audioBank = {
-		click_sfx: new Audio("static/audio/card_click.mp3"),
-		win_sfx: new Audio("static/audio/game_win.mp3"),
-		lose_sfx: new Audio("static/audio/game_lose.mp3")
-	};
-
+/*-------------------------------------------------------------
+      			           Audio
+  -----------------------------------------------------------*/
+const audioBank = {
+	click_sfx: new Audio('static/audio/card_click.mp3'),
+	win_sfx: new Audio('static/audio/game_win.mp3'),
+	lose_sfx: new Audio('static/audio/game_lose.mp3')
+};
 
 const clickSound = () => audioBank.click_sfx.play();
 const winSound = () => audioBank.win_sfx.play();
 const loseSound = () => audioBank.lose_sfx.play();
-
-
-
 
 
 /*-------------------------------------------------------------
@@ -62,7 +64,7 @@ const endGameAlertWinner = () => {
 
 
 // Looser announcement
-const endGameAlertLoser = (lose_sfx) => {
+const endGameAlertLoser = () => {
 	console.log('loser message is called');
 	const loseMessage = `Game over!  Game over!
 						 Oh no! You have  ${remainingStars}  stars!
@@ -104,8 +106,7 @@ const updateLeaderBoard = (timeCounter) => {
 		leaderBoardStorage.setItem("topPlay", JSON.stringify(timeCounter));
 		bestTime = timeCounter;
 		console.log(`first leaderBoard value ${timeCounter}`);
-
-	  } else if (oldTime > timeCounter) {
+	} else if (oldTime > timeCounter) {
 		leaderBoardStorage.setItem("topPlayer", JSON.stringify(timeCounter));
 		bestTime = timeCounter;
 		console.log(`new time for leaderBoard ${timeCounter}`);
@@ -119,14 +120,10 @@ const updateLeaderBoard = (timeCounter) => {
 /*-------------------------------------------------------------
   How long each player takes to match all of the matches
   -----------------------------------------------------------*/
-const stopTimer = () => {
-	clearInterval(timer);
-};
+const stopTimer = () => clearInterval(timer);
 
 
-const startTimer = () => {
-	timer = setInterval(timerCount, 1000);
-};
+const startTimer = () => timer = setInterval(timerCount, 1000);
 
 
 const timerCount = () => {
@@ -273,6 +270,7 @@ const turnCardOver = (event) => {
 	// if ($('.show').length > 1) {
 	// 	return true;
 	// }
+
 	clickSound();
 	event.target.classList.add('open', 'show');
 	openCards.push(event.target);
@@ -331,56 +329,66 @@ const shuffle = (gameChoice) => {
 
 
 // Reset the game, clears timer and points, resets stars, removes looser message
-$('.reset-button').on('click', () => {
+$(document).ready(function() {
+	$('.reset-button').on('click', () => {
+		openCards.splice(0, openCards.length);
+		timeCounter = 0;
+		timer = 0;
+		countStars = 0;
+		remainingStars = 5;
+		points = 0;
+		matches = 0;
+		countMoves = 0;
 
-	openCards.splice(0, openCards.length);
-	timeCounter = 0;
-	timer = 0;
-	countStars = 0;
-	remainingStars = 5;
-	points = 0;
-	matches = 0;
-	countMoves = 0;
+		// reset DOM for the control panel
+		$('.stop-watch').html(timeCounter);
+		$('.point-count').html(points);
+		$('.card').removeClass('open show');
 
+		// Prevent clicks until game starts again
+		// $('.game-board').prop("disabled", true);
+		// document.querySelector('.game-board').disabled=true;
+		// $('game-board').attr("disabled", true);
 
-	// reset DOM for the control panel
-	$('.stop-watch').html(timeCounter);
-	$('.point-count').html(points);
-	$('.card').removeClass('open show');
-
-	// Prevent clicks until game starts again
-	// $('.game-board').prop("disabled", true);
-	// document.querySelector('.game-board').disabled=true;
-	// $('game-board').attr("disabled", true);
-
-	removeListener();
-    clearRemainingStars();
-	returnStars();
-	removeGameAlertLoser();
-	$('.game-board').empty();
-	clickSound();
-	menuButtonContainer.classList.remove('hide-container');
+		removeListener();
+		clearRemainingStars();
+		returnStars();
+		removeGameAlertLoser();
+		$('.game-board').empty();
+		clickSound();
+		menuButtonContainer.classList.remove('hide-container');
+	});
 });
 
 
 // Choose which type of game to play and start game
-$('.word-word-button').on('click', () => {
-	clickSound();
-	shuffle(animals);
-	startTimer();
-	menuButtonContainer.classList.add('hide-container');
+$(function() {
+	$('.word-word-button').on('click', () => {
+		clickSound();
+		shuffle(animals);
+		startTimer();
+		menuButtonContainer.classList.add('hide-container');
+	});
+
 });
 
-$('.pict-word-button').on('click', () => {
-	clickSound();
-	shuffle(wordPicture);
-	startTimer();
-	menuButtonContainer.classList.add('hide-container');
+
+$(document).ready(function() {
+	$('.pict-word-button').on('click', () => {
+		clickSound();
+		shuffle(wordPicture);
+		startTimer();
+		menuButtonContainer.classList.add('hide-container');
+	});
 });
 
-$('.pict-pict-button').on('click', () => {
-	clickSound();
-	shuffle(picturePicture);
-	startTimer();
-	menuButtonContainer.classList.add('hide-container');
+
+$(function() {
+	$('.pict-pict-button').on('click', () => {
+		clickSound();
+		shuffle(picturePicture);
+		startTimer();
+		menuButtonContainer.classList.add('hide-container');
+	});
+
 });
