@@ -50,7 +50,7 @@ Click [here](#picture-of-responsive-design-website) to see pictures of the websi
 - Add name for leader board
 - Rework color scheme and add art to UI
 - Add more sfx to interactions with game
-- fix two bugs that happen when clicking 2 cards over
+- Fix two bugs that happen when clicking 2 cards over
     - if click too fast, can turn over cards
     - can click the same card for a match
     - to refine the limiting to two cards I tried the following, but the doesn't work on cards
