@@ -267,6 +267,7 @@ const compareCards = () => {
 
 // Turn two cards over
 const turnCardOver = (event) => {
+	// from mentor, but only partly works--need to figure out
 	// if ($('.show').length > 1) {
 	// 	return true;
 	// }
@@ -345,7 +346,7 @@ $(document).ready(function() {
 		$('.point-count').html(points);
 		$('.card').removeClass('open show');
 
-		// Prevent clicks until game starts again
+		// Prevent clicks until game starts again | all three below don't work, still working on it
 		// $('.game-board').prop("disabled", true);
 		// document.querySelector('.game-board').disabled=true;
 		// $('game-board').attr("disabled", true);

@@ -50,5 +50,22 @@ Click [here](#picture-of-responsive-design-website) to see pictures of the websi
 - Add name for leader board
 - Rework color scheme and add art to UI
 - Add more sfx to interactions with game
+- fix two bugs that happen when clicking 2 cards over
+    - if click too fast, can turn over cards
+    - can click the same card for a match
+    - to refine the limiting to two cards I tried the following, but the doesn't work on cards
+    ```
+                $('.game-board').prop("disabled", true);
+
+	document.querySelector('.game-board').disabled=true;
+
+	$('game-board').attr("disabled", true);
+    ```
+    - asked my mentor, he gave this sample, but only works until there is a match, then no cards can flip--I still need to figure it out
+    ```
+        if ($('.show').length > 1) {
+	        return true;
+	    }
+    ```
 - Refactor into React
 - Add more game vocabulary
