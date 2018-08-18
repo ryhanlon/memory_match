@@ -171,7 +171,7 @@ const moveCounter = () => {
 	countMoves += 1;
 	$('.move-counter').html(countMoves);
 	console.log('these are the moves baby: ' + countMoves);
-	return countMoves;
+	// return countMoves;
 };
 
 
@@ -220,8 +220,8 @@ const clearRemainingStars = ()  => {
 // Checks if cards match, if not turn back over
 const compareCards = () => {
 	// Compares the cards using data-match attribute
-	if (openCards[0].dataset.match === openCards[1].dataset.match) {
-		// console.log(openCards.dataset.match);
+	if (openCards[0] === openCards[1]) {
+
 
 		// Add 10 points for each correct match
 		addPoints();
@@ -229,21 +229,22 @@ const compareCards = () => {
 		// Count each match, at eight matches end game
 		countMatches();
 
-		// Count how many times clicked pair until all matched
-		moveCounter();
+		// // Count how many times clicked pair until all matched
+		// moveCounter();
 
 		// Adds classes, turns over cards
+		openCards[0].classList.add('match')
 		openCards[0].classList.remove('open');
-		openCards[0].classList.remove('show');
-		openCards[0].classList.add('match');
+		// openCards[0].classList.remove('show');
+		// openCards[0].disabled=true;
 
-
-		openCards[1].classList.remove('open');
-		openCards[1].classList.remove('show');
 		openCards[1].classList.add('match');
+		openCards[1].classList.remove('open');
+		// openCards[1].classList.remove('show');
 
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
+		// console.log('should be empty:' + openCards);
 
 
 	} else {
@@ -252,9 +253,16 @@ const compareCards = () => {
 
 		// If cards don't match, turns the cards back over and removes classes.
 		setTimeout(function () {
-			openCards.forEach(function (card) {
-				card.classList.remove('open', 'show');
-			});
+			// openCards.forEach(function (card) {
+			// 	card.classList.remove('open');
+			$(`[data-match=${openCards[0]}]`).removeClass('open');
+			$(`[data-match=${openCards[1]}]`).removeClass('open');
+			$(`[data-match=${openCards[0]}]`).prop("disabled", false);
+			$(`[data-match=${openCards[1]}]`).prop("disabled", false);
+
+
+
+			// });
 			// Lose point for miss
 			losePoints();
 			// Clears out the array for the next turn
@@ -267,26 +275,30 @@ const compareCards = () => {
 
 // Turn two cards over
 const turnCardOver = (event) => {
-	// from mentor, but only partly works--need to figure out
-	// if ($('.show').length > 1) {
-	// 	return true;
-	// }
 
-	clickSound();
-	event.target.classList.add('open', 'show');
-	openCards.push(event.target);
+
+
+	console.log(event);
+
+	if (event.target.disabled !== "true") {
+		clickSound();
+		event.target.classList.add('open');
+		openCards.push(event.target.dataset.match);
+		$(event.target).prop("disabled", "true");
+
+	}
 
 	if (openCards.length === 2) {
-	// $(openCards).attr("disabled", "disabled");
-
 		compareCards();
 	}
 };
-
+console.log(openCards);
 
 // Add event listener for click to turn over the cards
 const addListener = () => {
-	allCards.addEventListener('click', turnCardOver);
+	// allCards.addEventListener('click', turnCardOver);
+		allCards.addEventListener('click', turnCardOver);
+
 };
 
 // Remove event listener so click event doesn't happen until game starts
@@ -305,7 +317,8 @@ const buildGameBoard = (gameChoice) => {
 
 	for (let item of gameChoice) {
 		// console.log(game);
-		let buildBoxes = `<li class="card box" data-match=${item[1]}>${item[0]}</li>`;
+		let buildBoxes = `<div class="card boxes" data-match=${item[1]}>${item[0]}
+						 <div class="card-cover boxes" data-match=${item[1]}></div></div>`;
 		gameBoard.append(buildBoxes);
 
 	}
@@ -344,6 +357,7 @@ $(document).ready(function() {
 		// reset DOM for the control panel
 		$('.stop-watch').html(timeCounter);
 		$('.point-count').html(points);
+		$('.move-counter').html(countMoves);
 		$('.card').removeClass('open show');
 
 		// Prevent clicks until game starts again | all three below don't work, still working on it

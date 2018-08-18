@@ -182,16 +182,23 @@ video {
     margin: 0;
 }
 
-.game-board .card {
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
+/*.game-board {*/
+    /*grid-area: game-board;*/
+    /*justify-self: center;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*width: 95vw;*/
+    /*min-height: 70vh;*/
+    /*background: linear-gradient(160deg, #4824cf 0%, #aa7ecd 100%);*/
+    /*padding: 1rem .5rem;*/
+    /*border-radius: 10px;*/
+    /*box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);*/
+    /*margin: 0;*/
+/*}*/
 
-.box {
+.boxes {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,42 +206,83 @@ video {
     padding: .1rem;
     cursor: pointer;
     border-radius: 10px;
-    text-align: center;
     box-shadow: 1px 1px 1px #6c6c6c;
 }
 
-.box:hover {
-    background-color: #2e3d49;
+.card {
+    position: relative;
+    width: 21vw;
+    height: 16vh;
+    /*text-align: center;*/
+    background: #02ccba;
+    font-size: 2.6vh;
+    color: #ffffff;
 }
 
-.box:active {
-    background-color: #90bbe8;
+.card-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3f3f3f;
+    width: 21vw;
+    height: 16vh;
+    opacity: 1;
 }
+
+
+.card-cover:disabled {
+    background: #01746a;
+
+}
+
+/*.box {*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*margin: .1rem;*/
+    /*padding: .1rem;*/
+    /*cursor: pointer;*/
+    /*border-radius: 10px;*/
+    /*text-align: center;*/
+    /*box-shadow: 1px 1px 1px #6c6c6c;*/
+/*}*/
+
+/*.boxes:hover {*/
+    /*background-color: #4fa41e;*/
+/*}*/
+
+/*.boxes:active {*/
+    /*background-color: #90bbe8;*/
+/*}*/
 
 /*--- cards ---*/
-.game-board .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
+.open {
+    opacity: 0;
 }
 
-.game-board .card.show {
-    font-size: 1.2rem;
-    background-color: #02ccba;
-}
-
-.game-board .card.show:hover {
+.card-cover:hover {
     animation: shake2 0.5s;
 }
 
-.game-board .card.match {
+.match {
     cursor: default;
+    opacity: 0;
     background: #a46e2e;
     font-size: 1.2rem;
     animation-name: matchCard;
     animation-duration: 1s;
+
 }
 
+/*.disable {*/
+    /*pointer-events: none;*/
+    /*color: red;*/
+/*}*/
+
+/*.enable {*/
+    /*pointer-events: auto;*/
+    /*color: cornflowerblue;*/
+/*}*/
 
 /*-------------------------------
            Animation
