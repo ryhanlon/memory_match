@@ -183,11 +183,11 @@ const starCounter = () => {
 
 	countStars += 1;
 
-	if (countStars === 3) {
+	if (countStars === 4) {
 		$('ul .star-holder:first-child').remove();
 		countStars = 0;
 		remainingStars -= 1;
-			if (remainingStars === 0) {
+			if (remainingStars === 1) {
 		    	stopTimer();
 		    	updateLeaderBoard(timeCounter);
 		    	endGameAlertLoser();
@@ -219,6 +219,9 @@ const clearRemainingStars = ()  => {
   -----------------------------------------------------------*/
 // Checks if cards match, if not turn back over
 const compareCards = () => {
+	// Count how many times clicked pair until all matched
+	moveCounter();
+
 	// Compares the cards using data-match attribute
 	if (openCards[0] === openCards[1]) {
 
@@ -229,18 +232,13 @@ const compareCards = () => {
 		// Count each match, at eight matches end game
 		countMatches();
 
-		// // Count how many times clicked pair until all matched
-		// moveCounter();
-
 		// Adds classes, turns over cards
-		openCards[0].classList.add('match')
-		openCards[0].classList.remove('open');
-		// openCards[0].classList.remove('show');
-		// openCards[0].disabled=true;
+		$(`[data-match=${openCards[0]}]`).addClass('match');
+		$(`[data-match=${openCards[0]}]`).removeClass('open');
 
-		openCards[1].classList.add('match');
-		openCards[1].classList.remove('open');
-		// openCards[1].classList.remove('show');
+
+		$(`[data-match=${openCards[1]}]`).addClass('match', 'show');
+		$(`[data-match=${openCards[1]}]`).removeClass('open');
 
 		// Clears out the array for the next turn after a match
 		openCards.splice(0, openCards.length);
@@ -249,40 +247,32 @@ const compareCards = () => {
 
 	} else {
 		starCounter();
-		moveCounter();
 
 		// If cards don't match, turns the cards back over and removes classes.
 		setTimeout(function () {
-			// openCards.forEach(function (card) {
-			// 	card.classList.remove('open');
-			$(`[data-match=${openCards[0]}]`).removeClass('open');
-			$(`[data-match=${openCards[1]}]`).removeClass('open');
+			$(`[data-match=${openCards[0]}]`).removeClass('open').removeClass('show');
+			$(`[data-match=${openCards[1]}]`).removeClass('open').removeClass('show');
 			$(`[data-match=${openCards[0]}]`).prop("disabled", false);
 			$(`[data-match=${openCards[1]}]`).prop("disabled", false);
 
-
-
-			// });
 			// Lose point for miss
 			losePoints();
+
 			// Clears out the array for the next turn
 			openCards.splice(0, openCards.length);
-		}, 1000);
 
+		}, 1000);
 	}
 };
 
 
 // Turn two cards over
 const turnCardOver = (event) => {
-
-
-
-	console.log(event);
+	// console.log(event);
 
 	if (event.target.disabled !== "true") {
 		clickSound();
-		event.target.classList.add('open');
+		event.target.classList.add('open', 'show');
 		openCards.push(event.target.dataset.match);
 		$(event.target).prop("disabled", "true");
 
@@ -292,11 +282,10 @@ const turnCardOver = (event) => {
 		compareCards();
 	}
 };
-console.log(openCards);
+
 
 // Add event listener for click to turn over the cards
 const addListener = () => {
-	// allCards.addEventListener('click', turnCardOver);
 		allCards.addEventListener('click', turnCardOver);
 
 };
