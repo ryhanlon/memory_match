@@ -1,7 +1,7 @@
 /*----- Range of iPad (768 x 1024) -----*/
 @media screen and (min-width: 767px) {
     .game-nav {
-        font-size: 2rem;
+        font-size: 3.5vh;
     }
 
     .stars-container {
@@ -9,7 +9,7 @@
     }
 
     .game-nav .stars {
-        font-size: 1.5rem;
+        font-size: 2.5vh;
     }
 
     .game-board {
@@ -30,7 +30,7 @@
 /*----- Range of iPad Pro (1024 x 1366) -----*/
 @media screen and (min-width: 1023px) {
     .game-nav .stars {
-        font-size: 2rem;
+        /*font-size: 2.5vh;*/
         padding-left: 0;
     }
 }
@@ -54,6 +54,11 @@
                              "counter";
     }
 
+    .boxes {
+        width: 15vw;
+        height: 16vh;
+    }
+
     .title {
         text-align: center;
         font-size: 4vw;
@@ -62,11 +67,11 @@
     .game-board {
         width: 66vw;
         min-height: 90vh;
-        margin: 2rem 0;
+        margin: 5vh 0;
     }
 
     .game-nav .stars {
-        font-size: 2rem;
+        font-size: 4vh;
         padding-top: 4vh;
     }
 
