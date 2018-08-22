@@ -334,6 +334,8 @@ const shuffle = (gameChoice) => {
 // Reset the game, clears timer and points, resets stars, removes looser message
 $(document).ready(function() {
 	$('.reset-button').on('click', () => {
+				stopTimer();
+
 		openCards.splice(0, openCards.length);
 		timeCounter = 0;
 		timer = 0;
@@ -349,11 +351,7 @@ $(document).ready(function() {
 		$('.move-counter').html(countMoves);
 		$('.card').removeClass('open show');
 
-		// Prevent clicks until game starts again | all three below don't work, still working on it
-		// $('.game-board').prop("disabled", true);
-		// document.querySelector('.game-board').disabled=true;
-		// $('game-board').attr("disabled", true);
-
+		// Call functions
 		removeListener();
 		clearRemainingStars();
 		returnStars();

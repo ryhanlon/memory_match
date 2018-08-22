@@ -17,12 +17,12 @@
 
     }
 
-    .game-board .card.show {
-        font-size: 2.5rem;
+    .card {
+        left: .8vh;
     }
 
-    .game-board .card.match {
-        font-size: 2.5rem;
+    .game-choice {
+        top: 32vh;
     }
 }
 
@@ -30,7 +30,6 @@
 /*----- Range of iPad Pro (1024 x 1366) -----*/
 @media screen and (min-width: 1023px) {
     .game-nav .stars {
-        /*font-size: 2.5vh;*/
         padding-left: 0;
     }
 }
@@ -44,14 +43,17 @@
                              "game-nav game-board"
                              "footer footer";
     }
+
     .game-nav {
         justify-self: start;
-        grid-template: repeat(5, 1fr) / 1fr;
+        grid-template: repeat(7, 13%) / 1fr;
         grid-template-areas: "title"
+                             "title"
                              "stars"
                              "timer"
                              "moves"
-                             "counter";
+                             "counter"
+                             "reset";
     }
 
     .boxes {
@@ -62,6 +64,7 @@
     .title {
         text-align: center;
         font-size: 4vw;
+        margin: 5vh 0;
     }
 
     .game-board {
@@ -79,19 +82,23 @@
     .nav-content-1,
     .nav-content-2 {
         text-align: left;
-        padding-left: 6rem;
+        padding-left: 4rem;
     }
 
     .game-choice {
         top: 8rem;
         width: 50%;
         height: 58%;
-        margin-left: 25rem;
+        margin-left: 20rem;
 
     }
 
     .button {
         width: 35vw;
         font-size: 4vh;
+    }
+
+    .reset-icon {
+        padding-right: 6vw;
     }
 }

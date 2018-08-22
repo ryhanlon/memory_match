@@ -57,10 +57,10 @@ video {
     justify-self: stretch;
     /*margin: 1rem;*/
     display: grid;
-    grid-template: repeat(3, .8fr) / repeat(4, 1fr);
-    grid-template-areas: "title title title title"
-                         "moves moves counter counter"
-                         "timer timer stars stars";
+    grid-template: repeat(3, .8fr) / repeat(5, 1fr);
+    grid-template-areas: "title title title title title"
+                         "moves moves moves counter counter"
+                         "timer timer reset stars stars";
     font-size: 6vw;
 }
 
@@ -94,8 +94,8 @@ video {
 .game-nav .stars {
     grid-area: stars;
     justify-self: stretch;
-    font-size: 1rem;
-    letter-spacing: .2vw;
+    font-size: 2vh;
+    letter-spacing: .1vw;
 }
 
 .stars-container {
@@ -120,6 +120,18 @@ video {
     justify-self: stretch;
     /*margin: 0 5px 0 0;*/
     text-align: right;
+}
+
+.reset-icon {
+        grid-area: reset;
+    justify-self: stretch;
+    text-align: center;
+
+}
+
+.reset-icon:hover {
+    color: #02ccba;
+    font-size: 4vh;
 }
 
 
@@ -188,7 +200,7 @@ video {
     align-items: center;
     width: 21vw;
     height: 16vh;
-    margin: .1rem;
+    margin: 0;
     padding: .1rem;
     cursor: pointer;
     border-radius: 10px;
@@ -197,30 +209,27 @@ video {
 
 .card {
     position: relative;
+    left: .3vh;
+    /*top: 2vh;*/
     /*width: 21vw;*/
     /*height: 16vh;*/
     /*text-align: center;*/
     background: #02ccba;
-    font-size: 2.6vh;
+    font-size: 2.8vh;
     color: #ffffff;
 }
 
 
 .card-cover {
     position: absolute;
-    top: -1px;
-    right: 1px;
+    /*top: -1px;*/
+    /*right: 1px;*/
     background-color: #01746a;
     width: 21vw;
     height: 16vh;
     box-shadow: 3px 3px 3px #02ccba;
     opacity: 1;
 }
-
-
-/*.boxes:hover {*/
-    /*background-color: rgba(2, 147, 134);*/
-/*}*/
 
 
 /*--- cards ---*/
@@ -235,7 +244,7 @@ video {
 .match {
     cursor: default;
     opacity: 1;
-    font-size: 1.2rem;
+    font-size: 3vh;
     animation-name: matchCard;
     animation-duration: 1s;
     background-color: rgb(173, 116, 49);
@@ -247,15 +256,6 @@ video {
 
 }
 
-/*.disable {*/
-    /*pointer-events: none;*/
-    /*color: red;*/
-/*}*/
-
-/*.enable {*/
-    /*pointer-events: auto;*/
-    /*color: cornflowerblue;*/
-/*}*/
 
 /*-------------------------------
            Animation
