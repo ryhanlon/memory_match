@@ -404,7 +404,7 @@ const shuffle = (gameChoice) => {
  */
 $(document).ready(function() {
 	$('.reset-button').on('click', () => {
-				stopTimer();
+		stopTimer();
 
 		openCards.splice(0, openCards.length);
 		seconds = 0;
@@ -427,7 +427,7 @@ $(document).ready(function() {
 		// Call functions
 		removeListener();
 		clearRemainingStars();
-		returnStars();
+		// returnStars();
 		removeGameAlertLoser();
 		$('.game-board').empty();
 		clickSound();
