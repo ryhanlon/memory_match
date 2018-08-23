@@ -11,10 +11,10 @@ Click [here](#picture-of-responsive-design-website) to see pictures of the websi
 
 <br>
 
-##### Generate docs using jsDoc
+Generate docs using jsDoc
 
-Summary of arrays, objects, functions and variables used in memoryMatch.js
-
+Summary of arrays, objects, functions and variables used in memoryMatch.js <br>
+Click [here]("https://ryhanlon.github.io/memory_match/") to see the jsDoc Home Page for this project.
 <hr>
 
 ##### Technical Components
