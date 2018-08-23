@@ -10,7 +10,7 @@
 Click [here](#picture-of-responsive-design-website) to see pictures of the website's Responsive Design.
 
 ### Generate docs using jsDoc
-Click [here]("http://localhost:63342/memory_match/static/js/out/index.html")
+Click [here]()
 for a summary of arrays, objects, functions and variables used in memoryMatch.js
 
 ##### Technical Components
